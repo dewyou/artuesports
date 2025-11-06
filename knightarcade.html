@@ -5,181 +5,172 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Knight Arcade</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <div class="bg-[#050708] content-stretch flex flex-col gap-[37px] items-center relative size-full min-h-screen" data-name="knightArcade_desktop" data-node-id="375:896">
+    <div class="page-container flex-col gap-section items-center" data-name="knightArcade_desktop" data-node-id="375:896">
         <!-- NavBar -->
-        <div class="bg-[#1d252c] box-border content-stretch flex h-[96px] items-center justify-between px-[36px] py-0 relative shrink-0 w-full" data-name="NavBar" data-node-id="529:2827">
-            <div class="content-stretch flex flex-col gap-[7.5px] h-[57.828px] items-start relative shrink-0 w-[141.75px]" data-name="Logo-Wordmark-Full" data-node-id="529:2830">
-                <div class="basis-0 grow min-h-px min-w-px relative shrink-0 w-full" data-name="Theme=Dark" data-node-id="I529:2830;43:154">
-                    <img alt="" class="absolute inset-0 max-w-none object-50%-50% object-cover pointer-events-none size-full" src="http://localhost:3845/assets/8c45d48ad9647e61d53a4a21a56dc8436bc070c2.png" />
+        <div class="nav-bar" data-name="NavBar" data-node-id="529:2827">
+            <div class="logo-container" data-name="Logo-Wordmark-Full" data-node-id="529:2830">
+                <div class="relative w-full" data-name="Theme=Dark" data-node-id="I529:2830;43:154">
+                    <img alt="" class="logo-img" src="http://localhost:3845/assets/8c45d48ad9647e61d53a4a21a56dc8436bc070c2.png" />
                 </div>
             </div>
-            <div class="basis-0 content-stretch flex gap-[129px] grow items-center justify-end min-h-px min-w-px relative shrink-0" data-node-id="529:2831">
-                <div class="content-stretch flex font-['Pressio:No._44_Bold_Condensed',_'Noto_Sans_Symbols2:Regular',_sans-serif] gap-[48px] items-center leading-[normal] not-italic relative shrink-0 text-[#fcfcfc] text-[28px] text-nowrap whitespace-pre" data-name="Destop_Nav_Menu" data-node-id="529:2832">
-                    <p class="relative shrink-0" data-node-id="529:2833">TEAMS ▾</p>
-                    <p class="relative shrink-0" data-node-id="529:2834">LOUNGE ▾</p>
-                    <p class="relative shrink-0" data-node-id="529:2835">EVENTS ▾</p>
-                    <p class="relative shrink-0" data-node-id="529:2836">CONNECT ▾</p>
+            <div class="flex-row justify-end items-center" data-node-id="529:2831">
+                <div class="nav-menu" data-name="Destop_Nav_Menu" data-node-id="529:2832">
+                    <p class="nav-menu-item" data-node-id="529:2833">TEAMS ▾</p>
+                    <p class="nav-menu-item" data-node-id="529:2834">LOUNGE ▾</p>
+                    <p class="nav-menu-item" data-node-id="529:2835">EVENTS ▾</p>
+                    <p class="nav-menu-item" data-node-id="529:2836">CONNECT ▾</p>
                 </div>
             </div>
         </div>
 
         <!-- Main Content -->
-        <div class="content-stretch flex flex-col gap-[37px] items-center relative shrink-0 w-full" data-node-id="554:1010">
+        <div class="flex-col gap-section items-center w-full" data-node-id="554:1010">
             <!-- 01-hero-section -->
-            <div class="content-stretch flex flex-col gap-[37px] items-center relative shrink-0 w-full" data-name="01-hero-section" data-node-id="554:1005">
-                <div class="content-stretch flex flex-col gap-[15px] h-[1007px] items-center relative shrink-0 w-[1658px]" data-node-id="500:1295">
-                    <div class="h-[972px] relative shrink-0 w-full" data-node-id="500:1296">
-                        <img alt="" class="absolute inset-0 max-w-none object-50%-50% object-cover pointer-events-none size-full" src="http://localhost:3845/assets/6cf70d6a807fce43a58ed7685fa8b54ce68923bd.png" />
+            <div class="flex-col gap-section items-center w-full" data-name="01-hero-section" data-node-id="554:1005">
+                <div class="flex-col gap-small items-center relative" style="height: 1007px; width: 1658px; max-width: 100%;" data-node-id="500:1295">
+                    <div class="relative w-full" style="height: 972px;" data-node-id="500:1296">
+                        <img alt="" class="img-cover absolute" src="http://localhost:3845/assets/6cf70d6a807fce43a58ed7685fa8b54ce68923bd.png" />
                     </div>
-                    <div class="h-[20px] relative shrink-0 w-[228px]" data-node-id="500:1297">
-                        <img alt="" class="block max-w-none size-full" src="http://localhost:3845/assets/77b5954811218048928bf27bedd86de704cb9b2f.svg" />
+                    <div class="relative" style="height: 20px; width: 228px;" data-node-id="500:1297">
+                        <img alt="" class="w-full h-full" src="http://localhost:3845/assets/77b5954811218048928bf27bedd86de704cb9b2f.svg" />
                     </div>
                 </div>
-                <div class="box-border content-stretch flex flex-col gap-[18px] items-start leading-[normal] px-[36px] py-0 relative shrink-0 text-[#fcfcfc] w-full" data-node-id="375:936">
-                    <p class="font-['Pressio:No._44_Bold_Condensed',_sans-serif] h-[104px] not-italic relative shrink-0 text-[length:var(--type\/display\/h1-size,128px)] tracking-[-2.56px] uppercase w-full" data-node-id="375:937">
+                <div class="content-section flex-col gap-medium items-start text-primary w-full" data-node-id="375:936">
+                    <p class="section-heading" data-node-id="375:937">
                         THE KNIGHT ARCADE
                     </p>
-                    <p class="font-['Urbanist:Medium',_sans-serif] font-medium relative shrink-0 text-[length:var(--type\/paragraph\/p1,26px)] tracking-[-0.52px] w-full" data-node-id="375:938">
+                    <p class="paragraph w-full" data-node-id="375:938">
                         The ArtU Game Lounge (AKA: The Knight Arcade) is an on-campus hub for gamers of all levels; open play, team practices, watch parties, and varsity match days. The arena is located at the heart of the city at 180 New Montgomery St. All the students, staff, and faculty, are welcome. Drop in to play, meet teammates, and learn production skills, where we provide a variety of the most popular games at ArtU.
                     </p>
                 </div>
             </div>
 
             <!-- 02-equipment-section -->
-            <div class="content-stretch flex h-[631px] items-start justify-between relative shrink-0 w-[1657px]" data-name="02-equipment-section" data-node-id="554:1006">
-                <div class="content-stretch flex flex-col gap-[18px] h-[627px] items-start relative shrink-0 w-[820px]" data-node-id="375:901">
-                    <p class="font-['Pressio:No._44_Bold_Condensed',_sans-serif] h-[253px] leading-[normal] not-italic relative shrink-0 text-[#fcfcfc] text-[length:var(--type\/display\/h1-size,128px)] tracking-[-2.56px] uppercase w-full" data-node-id="375:902">
+            <div class="flex-row items-start justify-between relative" style="width: 1657px; max-width: 100%; height: 631px;" data-name="02-equipment-section" data-node-id="554:1006">
+                <div class="flex-col items-start relative" style="gap: 18px; height: 627px; width: 820px; max-width: 100%;" data-node-id="375:901">
+                    <p class="section-heading" style="height: 253px;" data-node-id="375:902">
                         EQUIPMENT SPECTS
                     </p>
-                    <div class="content-stretch flex gap-[13px] items-center relative shrink-0" data-node-id="375:903">
-                        <div class="font-['Urbanist:Medium',_sans-serif] font-medium leading-[0] relative shrink-0 text-[#fcfcfc] text-[0px] tracking-[-0.52px] w-[820px]" data-node-id="375:904">
-                            <p class="font-['Pressio:No._43_Medium_Condensed',_sans-serif] leading-[normal] mb-0 not-italic text-[32px] tracking-[-0.64px]">"Alienware Aurora R13"</p>
-                            <p class="leading-[normal] mb-0 text-[12px]">&nbsp;</p>
-                            <ul class="list-disc mb-0 whitespace-pre-wrap">
-                                <li class="leading-[normal] mb-0 ms-[calc(1.5*1*var(--list-marker-font-size,0))]">
-                                    <span class="font-['Urbanist:SemiBold',_sans-serif] font-semibold text-[12px] tracking-[-0.24px]">CPU: </span>
-                                    <span class="text-[26px]"> 12th Gen Intel Core i7 12700K</span>
+                    <div class="flex-row gap-small items-center relative" style="gap: 13px;" data-node-id="375:903">
+                        <div class="paragraph relative" style="font-size: 0; width: 820px; max-width: 100%;" data-node-id="375:904">
+                            <p class="font-pressio-medium" style="font-size: 32px; letter-spacing: -0.64px; margin-bottom: 0;">"Alienware Aurora R13"</p>
+                            <p style="font-size: 12px; margin-bottom: 0;">&nbsp;</p>
+                            <ul style="list-style-type: disc; margin-bottom: 0; white-space: pre-wrap;">
+                                <li style="margin-bottom: 0;">
+                                    <span style="font-weight: 600; font-size: 12px; letter-spacing: -0.24px;">CPU: </span>
+                                    <span style="font-size: 26px;"> 12th Gen Intel Core i7 12700K</span>
                                 </li>
-                                <li class="leading-[normal] mb-0 ms-[calc(1.5*1*var(--list-marker-font-size,0))]">
-                                    <span class="font-['Urbanist:SemiBold',_sans-serif] font-semibold text-[12px] tracking-[-0.24px]">GPU:</span>
-                                    <span class="text-[26px]">  NVIDIA® GeForce RTX™ 3080 10GB GDDR6X</span>
+                                <li style="margin-bottom: 0;">
+                                    <span style="font-weight: 600; font-size: 12px; letter-spacing: -0.24px;">GPU:</span>
+                                    <span style="font-size: 26px;">  NVIDIA® GeForce RTX™ 3080 10GB GDDR6X</span>
                                 </li>
-                                <li class="leading-[normal] mb-0 ms-[calc(1.5*1*var(--list-marker-font-size,0))]">
-                                    <span class="font-['Urbanist:SemiBold',_sans-serif] font-semibold text-[12px] tracking-[-0.24px]">Memory:</span>
-                                    <span class="text-[26px]">  64GB (2 x 32GB) DDR5 4400 MHz</span>
+                                <li style="margin-bottom: 0;">
+                                    <span style="font-weight: 600; font-size: 12px; letter-spacing: -0.24px;">Memory:</span>
+                                    <span style="font-size: 26px;">  64GB (2 x 32GB) DDR5 4400 MHz</span>
                                 </li>
-                                <li class="leading-[normal] ms-[calc(1.5*1*var(--list-marker-font-size,0))]">
-                                    <span class="font-['Urbanist:SemiBold',_sans-serif] font-semibold text-[12px] tracking-[-0.24px]">Storage: </span>
-                                    <span class="text-[26px]"> 2TB NVMe M.2 PCIe SSD</span>
-                                </li>
-                            </ul>
-                            <p class="leading-[normal] mb-0 text-[26px]">&nbsp;</p>
-                            <ul class="mb-0">
-                                <li class="leading-[normal] list-disc ms-[calc(1.5*1*var(--list-marker-font-size,0))] whitespace-pre-wrap">
-                                    <span class="font-['Urbanist:SemiBold',_sans-serif] font-semibold text-[12px] tracking-[-0.24px]">Monitors: </span>
-                                    <span class="text-[26px]"> Alienware 25" 360 Hz</span>
+                                <li>
+                                    <span style="font-weight: 600; font-size: 12px; letter-spacing: -0.24px;">Storage: </span>
+                                    <span style="font-size: 26px;"> 2TB NVMe M.2 PCIe SSD</span>
                                 </li>
                             </ul>
-                            <p class="leading-[normal] mb-0 text-[26px]">&nbsp;</p>
-                            <p class="leading-[normal] mb-0 text-[26px]">We also have current-gen consoles, fully equipped professional production / broadcast studio, team comms headsets, and lounge seating.</p>
-                            <p class="leading-[normal] mb-0 text-[26px]">&nbsp;</p>
-                            <p class="leading-[normal] mb-0 text-[26px]">&nbsp;</p>
-                            <p class="leading-[normal] text-[26px]">&nbsp;</p>
+                            <p style="font-size: 26px; margin-bottom: 0;">&nbsp;</p>
+                            <ul style="margin-bottom: 0;">
+                                <li style="list-style-type: disc; white-space: pre-wrap;">
+                                    <span style="font-weight: 600; font-size: 12px; letter-spacing: -0.24px;">Monitors: </span>
+                                    <span style="font-size: 26px;"> Alienware 25" 360 Hz</span>
+                                </li>
+                            </ul>
+                            <p style="font-size: 26px; margin-bottom: 0;">&nbsp;</p>
+                            <p style="font-size: 26px; margin-bottom: 0;">We also have current-gen consoles, fully equipped professional production / broadcast studio, team comms headsets, and lounge seating.</p>
+                            <p style="font-size: 26px; margin-bottom: 0;">&nbsp;</p>
+                            <p style="font-size: 26px; margin-bottom: 0;">&nbsp;</p>
+                            <p style="font-size: 26px;">&nbsp;</p>
                         </div>
                     </div>
                 </div>
-                <div class="bg-[#d9d9d9] h-[461px] shrink-0 w-[819px]" data-node-id="415:1997"></div>
+                <div style="background-color: #d9d9d9; height: 461px; width: 819px; max-width: 100%;" data-node-id="415:1997"></div>
             </div>
 
             <!-- 03-events-community-section -->
-            <div class="content-stretch flex gap-[16px] items-center relative shrink-0" data-node-id="554:1008">
-                <div class="bg-[#1d252c] box-border content-stretch flex flex-col gap-[16px] h-[798px] items-start px-[15px] py-[17px] relative rounded-[16px] shrink-0 w-[821px]" data-name="Event-Card" data-node-id="517:1687">
-                    <div class="basis-0 grid-cols-[max-content] grid-rows-[max-content] grow inline-grid leading-[0] min-h-px min-w-px place-items-start relative shrink-0 w-full" data-node-id="I517:1687;156:9">
-                        <div class="[grid-area:1_/_1] grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-0 mt-0 place-items-start relative" data-name="Mask group" data-node-id="I517:1687;156:10">
-                            <div class="[grid-area:1_/_1] h-[392.862px] mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-position-[15px_120.571px] mask-size-[376px_211px] ml-[-15px] mt-[-120.571px] relative w-[391px]" data-name="u1879261762_GAMING_NIGHT_PLAYERS_SIT_AT_COMPUTERS_IN_A_ROW_AN_82876ee2-667d-4050-a1b1-06e30cd58b63_1 1" data-node-id="I517:1687;156:12" style="mask-image: url('http://localhost:3845/assets/b44fd02dd98007aa43f407ec38e4111e221fd110.svg');">
-                                <img alt="" class="absolute inset-0 max-w-none object-50%-50% object-cover pointer-events-none size-full" src="http://localhost:3845/assets/7ed87f09f8072a0354ece44401c08d3a5b06a434.png" />
-                            </div>
+            <div class="flex-row gap-small items-center relative" data-node-id="554:1008">
+                <div class="card flex-col gap-small" style="height: 798px; width: 821px; max-width: 100%;" data-name="Event-Card" data-node-id="517:1687">
+                    <div class="relative w-full" style="height: 392.862px;" data-node-id="I517:1687;156:9">
+                        <div class="relative" style="width: 391px; max-width: 100%; height: 392.862px; margin-left: -15px; margin-top: -120.571px;" data-name="u1879261762_GAMING_NIGHT_PLAYERS_SIT_AT_COMPUTERS_IN_A_ROW_AN_82876ee2-667d-4050-a1b1-06e30cd58b63_1 1" data-node-id="I517:1687;156:12" style="mask-image: url('http://localhost:3845/assets/b44fd02dd98007aa43f407ec38e4111e221fd110.svg'); mask-position: 15px 120.571px; mask-size: 376px 211px;">
+                            <img alt="" class="img-cover absolute" src="http://localhost:3845/assets/7ed87f09f8072a0354ece44401c08d3a5b06a434.png" />
                         </div>
                     </div>
-                    <div class="content-stretch flex flex-col gap-[6px] items-start relative shrink-0 w-full" data-node-id="I517:1687;156:13">
-                        <p class="font-['Urbanist:Medium',_sans-serif] font-medium leading-[normal] min-w-full relative shrink-0 text-[#fcfcfc] text-[26px] tracking-[-0.52px] w-[min-content]" data-node-id="I517:1687;156:14">
+                    <div class="flex-col gap-small items-start w-full" style="gap: 6px;" data-node-id="I517:1687;156:13">
+                        <p class="paragraph" data-node-id="I517:1687;156:14">
                             Thursday, October 12th | 10/16/25
                         </p>
-                        <p class="font-['Pressio:No._44_Bold_Condensed',_sans-serif] leading-[normal] min-w-full not-italic relative shrink-0 text-[#fcfcfc] text-[128px] tracking-[-2.56px] uppercase w-[min-content]" data-node-id="I517:1687;156:15">
+                        <p class="section-heading" data-node-id="I517:1687;156:15">
                             ECAC Tournament
                         </p>
-                        <div class="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="I517:1687;156:16">
-                            <p class="[grid-area:1_/_1] font-['Urbanist:Medium',_sans-serif] font-medium leading-[normal] ml-[13px] mt-0 relative text-[#fcfcfc] text-[26px] text-nowrap tracking-[-0.52px] whitespace-pre" data-node-id="I517:1687;156:17">
+                        <div class="flex-row items-center gap-small" data-node-id="I517:1687;156:16">
+                            <p class="paragraph" style="margin-left: 13px;" data-node-id="I517:1687;156:17">
                                 Streaming on twitch
                             </p>
-                            <div class="[grid-area:1_/_1] aspect-[14.5/18.6429] ml-0 mt-[3px] relative w-[8.5px]" data-name="vector" data-node-id="I517:1687;156:18">
-                                <div class="absolute inset-[-4.58%_-5.88%_-5.67%_-5.88%]">
-                                    <img alt="" class="block max-w-none size-full" src="http://localhost:3845/assets/e34cbc83a6d441ad6352f0ebc817e0bc9cb7796d.svg" />
-                                </div>
+                            <div style="width: 8.5px; aspect-ratio: 14.5/18.6429;" data-name="vector" data-node-id="I517:1687;156:18">
+                                <img alt="" class="w-full h-full" src="http://localhost:3845/assets/e34cbc83a6d441ad6352f0ebc817e0bc9cb7796d.svg" />
                             </div>
                         </div>
                     </div>
-                    <div class="bg-[#fcfcfc] h-[29px] rounded-[6px] shrink-0 w-[30px]" data-node-id="I517:1687;156:19"></div>
+                    <div style="background-color: #fcfcfc; height: 29px; width: 30px; border-radius: 6px;" data-node-id="I517:1687;156:19"></div>
                 </div>
-                <div class="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-[820px]" data-node-id="554:1007">
-                    <div class="bg-white h-[370px] overflow-clip relative rounded-[16px] shrink-0 w-full" data-node-id="517:1658">
-                        <div class="absolute h-[446px] left-0 top-0 w-[820px]" data-name="image 2" data-node-id="517:1659">
-                            <img alt="" class="absolute inset-0 max-w-none object-50%-50% object-cover pointer-events-none size-full" src="http://localhost:3845/assets/d7d2fb82375951d8aaa2c42e60ee6622559f490f.png" />
+                <div class="flex-col gap-small items-start" style="width: 820px; max-width: 100%;" data-node-id="554:1007">
+                    <div class="relative" style="height: 370px; background-color: white; border-radius: 16px; overflow: hidden;" data-node-id="517:1658">
+                        <div class="absolute" style="height: 446px; width: 820px; max-width: 100%; left: 0; top: 0;" data-name="image 2" data-node-id="517:1659">
+                            <img alt="" class="img-cover absolute" src="http://localhost:3845/assets/d7d2fb82375951d8aaa2c42e60ee6622559f490f.png" />
                         </div>
-                        <div class="absolute backdrop-blur-[12.5px] backdrop-filter border-[#405464] border-[1.5px] border-solid h-[411px] left-0 rounded-[8px] top-0 w-[820px]" data-node-id="517:1660">
-                            <div class="h-[411px] overflow-clip relative rounded-[inherit] w-[820px]">
-                                <div class="absolute box-border content-stretch flex flex-col gap-[45px] h-[372px] items-start left-0 px-[134px] py-[54px] top-0 w-[820px]" data-node-id="517:1661">
-                                    <div class="content-stretch flex items-center justify-between relative shrink-0 w-full" data-node-id="517:1662">
-                                        <p class="font-['Pressio:No._44_Bold_Condensed',_sans-serif] leading-[normal] not-italic relative shrink-0 text-[#fcfcfc] text-[length:var(--type\/display\/h1-size,128px)] text-nowrap tracking-[-2.56px] uppercase whitespace-pre" data-node-id="517:1663">
+                        <div class="absolute" style="height: 411px; width: 820px; max-width: 100%; left: 0; top: 0; border-radius: 8px; border: 1.5px solid #405464; backdrop-filter: blur(12.5px);" data-node-id="517:1660">
+                            <div class="relative" style="height: 411px; width: 820px; max-width: 100%; overflow: hidden; border-radius: inherit;">
+                                <div class="absolute flex-col items-start" style="gap: 45px; height: 372px; left: 0; padding: 54px 134px; top: 0; width: 820px; max-width: 100%;" data-node-id="517:1661">
+                                    <div class="flex-row items-center justify-between w-full" data-node-id="517:1662">
+                                        <p class="section-heading" style="white-space: pre;" data-node-id="517:1663">
                                             TEAMS
                                         </p>
-                                        <div class="bg-[#ed1f33] box-border content-stretch flex flex-col gap-[10px] h-[44px] items-center justify-center px-[54px] py-[12px] relative rounded-[16px] shrink-0 w-[154px]" data-name="Buttons-Desktop" data-node-id="517:1664">
-                                            <p class="font-['Urbanist:Medium',_sans-serif] font-medium leading-[normal] relative shrink-0 text-[#fcfcfc] text-[length:var(--type\/paragraph\/p1,26px)] text-nowrap tracking-[-0.52px] whitespace-pre" data-node-id="I517:1664;25:143">
-                                                Learn More
-                                            </p>
-                                        </div>
+                                        <button class="btn-learn-more" data-name="Buttons-Desktop" data-node-id="517:1664">
+                                            Learn More
+                                        </button>
                                     </div>
-                                    <p class="font-['Urbanist:SemiBold',_sans-serif] font-semibold leading-[normal] relative shrink-0 text-[#fcfcfc] text-[length:var(--type\/paragraph\/p2,20px)] tracking-[-0.4px] w-full" data-node-id="517:1665">A comprehensive guide to the ArtU Esports program. Not sure where to start? we got you covered. </p>
+                                    <p class="paragraph" style="font-weight: 600; font-size: 20px; letter-spacing: -0.4px;" data-node-id="517:1665">A comprehensive guide to the ArtU Esports program. Not sure where to start? we got you covered. </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="517:1666">
-                        <div class="[grid-area:1_/_1] h-[412px] ml-0 mt-0 relative rounded-[16px] w-[820px]" data-name="20190302_172852-scaled-1-1024x498 1" data-node-id="517:1667">
-                            <img alt="" class="absolute inset-0 max-w-none object-50%-50% object-cover pointer-events-none rounded-[16px] size-full" src="http://localhost:3845/assets/b5df4f63fa5e7043df103fcd460c8c7d91c2e122.png" />
+                    <div class="relative" style="width: 820px; max-width: 100%;" data-node-id="517:1666">
+                        <div class="absolute" style="height: 412px; width: 820px; max-width: 100%; border-radius: 16px;" data-name="20190302_172852-scaled-1-1024x498 1" data-node-id="517:1667">
+                            <img alt="" class="img-cover absolute" style="border-radius: 16px;" src="http://localhost:3845/assets/b5df4f63fa5e7043df103fcd460c8c7d91c2e122.png" />
                         </div>
-                        <div class="[grid-area:1_/_1] backdrop-blur-[6px] backdrop-filter bg-gradient-to-b from-[38.593%] from-[rgba(64,84,100,0.31)] h-[411.325px] ml-0 mt-[0.675px] rounded-[16px] to-[rgba(5,7,8,0.75)] w-[820px]" data-node-id="517:1668"></div>
-                        <div class="[grid-area:1_/_1] box-border content-stretch flex flex-col gap-[80px] h-[411.652px] items-start ml-0 mt-[0.217px] px-[140px] py-[21px] relative w-[820px]" data-node-id="517:1669">
-                            <p class="font-['Pressio:No._44_Bold_Condensed',_sans-serif] h-[57px] leading-[normal] not-italic relative shrink-0 text-[#fcfcfc] text-[length:var(--type\/display\/h1-size,128px)] tracking-[-2.56px] uppercase w-[587px]" data-node-id="517:1670">
+                        <div class="absolute" style="height: 411.325px; width: 820px; max-width: 100%; border-radius: 16px; margin-top: 0.675px; background: linear-gradient(to bottom, rgba(64,84,100,0.31) 38.593%, rgba(5,7,8,0.75)); backdrop-filter: blur(6px);" data-node-id="517:1668"></div>
+                        <div class="absolute flex-col items-start" style="gap: 80px; height: 411.652px; width: 820px; max-width: 100%; margin-top: 0.217px; padding: 21px 140px;" data-node-id="517:1669">
+                            <p class="section-heading" style="height: 57px; width: 587px; max-width: 100%;" data-node-id="517:1670">
                                 COMMUNITY
                             </p>
-                            <div class="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-[587px]" data-node-id="517:1671">
-                                <div class="content-stretch flex items-center justify-between relative shrink-0 w-full" data-node-id="517:1672">
-                                    <div class="content-stretch flex gap-[10px] h-[41.803px] items-center relative rounded-[16px] shrink-0 w-[130.455px]" data-node-id="517:1673">
-                                        <div class="relative shrink-0 size-[30px]" data-node-id="517:1674">
-                                            <div class="absolute bg-[#ed1f33] left-0 rounded-[40px] size-[30px] top-0" data-node-id="517:1675"></div>
-                                            <div class="absolute h-[14px] left-[6px] overflow-clip top-[8px] w-[18px]" data-name="discord logo" data-node-id="517:1676">
-                                                <div class="absolute contents inset-0" data-name="Clip path group" data-node-id="517:1677">
-                                                    <div class="absolute bottom-[0.86%] left-0 mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-position-[0px_-0.105px] mask-size-[18px_14px] right-0 top-[0.75%]" data-name="Group" data-node-id="517:1680" style="mask-image: url('http://localhost:3845/assets/e03a0f92140a53c5fd63a99081ba1ca8e3e25c29.svg');">
-                                                        <img alt="" class="block max-w-none size-full" src="http://localhost:3845/assets/238763e2a146d73a049473ca9252576cbdbd3840.svg" />
+                            <div class="flex-col gap-small items-start" style="width: 587px; max-width: 100%;" data-node-id="517:1671">
+                                <div class="flex-row items-center justify-between w-full" data-node-id="517:1672">
+                                    <div class="flex-row items-center gap-small" style="height: 41.803px; width: 130.455px; border-radius: 16px;" data-node-id="517:1673">
+                                        <div class="relative" style="width: 30px; height: 30px;" data-node-id="517:1674">
+                                            <div class="absolute" style="background-color: #ed1f33; width: 30px; height: 30px; border-radius: 40px; left: 0; top: 0;" data-node-id="517:1675"></div>
+                                            <div class="absolute" style="height: 14px; width: 18px; left: 6px; top: 8px; overflow: hidden;" data-name="discord logo" data-node-id="517:1676">
+                                                <div class="absolute" style="inset: 0;" data-name="Clip path group" data-node-id="517:1677">
+                                                    <div class="absolute" style="bottom: 0.86%; left: 0; right: 0; top: 0.75%; mask-image: url('http://localhost:3845/assets/e03a0f92140a53c5fd63a99081ba1ca8e3e25c29.svg'); mask-position: 0px -0.105px; mask-size: 18px 14px;" data-name="Group" data-node-id="517:1680">
+                                                        <img alt="" class="w-full h-full" src="http://localhost:3845/assets/238763e2a146d73a049473ca9252576cbdbd3840.svg" />
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="relative shrink-0 size-[30px]" data-node-id="517:1682">
-                                            <img alt="" class="block max-w-none size-full" src="http://localhost:3845/assets/b393f07a214dea013e275e1f462a3ed815c5c6a0.svg" />
+                                        <div class="relative" style="width: 30px; height: 30px;" data-node-id="517:1682">
+                                            <img alt="" class="w-full h-full" src="http://localhost:3845/assets/b393f07a214dea013e275e1f462a3ed815c5c6a0.svg" />
                                         </div>
                                     </div>
-                                    <div class="bg-[#ed1f33] box-border content-stretch flex flex-col gap-[10px] h-[44px] items-center justify-center px-[54px] py-[12px] relative rounded-[16px] shrink-0 w-[154px]" data-name="Buttons-Desktop" data-node-id="517:1685">
-                                        <p class="font-['Urbanist:Medium',_sans-serif] font-medium leading-[normal] relative shrink-0 text-[#fcfcfc] text-[length:var(--type\/paragraph\/p1,26px)] text-nowrap tracking-[-0.52px] whitespace-pre" data-node-id="I517:1685;25:143">
-                                            Learn More
-                                        </p>
-                                    </div>
+                                    <button class="btn-learn-more" data-name="Buttons-Desktop" data-node-id="517:1685">
+                                        Learn More
+                                    </button>
                                 </div>
-                                <p class="font-['Urbanist:SemiBold',_sans-serif] font-semibold h-[130.982px] leading-[normal] relative shrink-0 text-[#f2f2f2] text-[length:var(--type\/paragraph\/p2,20px)] tracking-[-0.4px] w-full" data-node-id="517:1686">Our community is built on the pillars of teamwork, craft, and a shared passion for play. Whether you're aiming for a varsity spot, want to join a broadcast crew, or just want to meet new friends in the game lounge, there's a place for you here. The conversation, team-finding, and event announcements happen 24/7 on our official Discord server. It's the best way to connect with fellow players and become part of our home for gamers.</p>
+                                <p class="paragraph" style="font-weight: 600; font-size: 20px; letter-spacing: -0.4px; height: 130.982px; color: var(--color-text-secondary);" data-node-id="517:1686">Our community is built on the pillars of teamwork, craft, and a shared passion for play. Whether you're aiming for a varsity spot, want to join a broadcast crew, or just want to meet new friends in the game lounge, there's a place for you here. The conversation, team-finding, and event announcements happen 24/7 on our official Discord server. It's the best way to connect with fellow players and become part of our home for gamers.</p>
                             </div>
                         </div>
                     </div>
@@ -188,75 +179,73 @@
         </div>
 
         <!-- Footer -->
-        <div class="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Footer" data-node-id="554:3395">
-            <div class="bg-[#1d252c] box-border content-stretch flex items-start justify-between overflow-clip px-[36px] py-[16px] relative shrink-0 w-full" data-name="Footer-Top" data-node-id="I554:3395;255:113">
-                <div class="content-stretch flex flex-col gap-[160px] items-start relative shrink-0 w-[252px]" data-node-id="I554:3395;255:161">
-                    <div class="aspect-[1265.82/516.402] content-stretch flex flex-col gap-[10px] items-start relative shrink-0 w-full" data-name="Logo-Wordmark-Full" data-node-id="I554:3395;255:116">
-                        <div class="basis-0 grow min-h-px min-w-px relative shrink-0 w-full" data-name="Theme=Dark" data-node-id="I554:3395;255:116;43:154">
-                            <img alt="" class="absolute inset-0 max-w-none object-50%-50% object-cover pointer-events-none size-full" src="http://localhost:3845/assets/8c45d48ad9647e61d53a4a21a56dc8436bc070c2.png" />
+        <div class="flex-col items-start w-full" data-name="Footer" data-node-id="554:3395">
+            <div class="footer-top" data-name="Footer-Top" data-node-id="I554:3395;255:113">
+                <div class="flex-col items-start" style="gap: 160px; width: 252px;" data-node-id="I554:3395;255:161">
+                    <div class="flex-col gap-small items-start w-full" style="aspect-ratio: 1265.82/516.402;" data-name="Logo-Wordmark-Full" data-node-id="I554:3395;255:116">
+                        <div class="relative w-full" data-name="Theme=Dark" data-node-id="I554:3395;255:116;43:154">
+                            <img alt="" class="logo-img" src="http://localhost:3845/assets/8c45d48ad9647e61d53a4a21a56dc8436bc070c2.png" />
                         </div>
                     </div>
-                    <div class="content-stretch flex gap-[8px] items-center relative shrink-0" data-node-id="I554:3395;255:156">
-                        <div class="bg-[#ed1f33] box-border content-stretch flex flex-col gap-[10px] items-start px-[6px] py-[8px] relative rounded-[40px] shrink-0 size-[36px]" data-node-id="I554:3395;255:118">
-                            <div class="basis-0 grow min-h-px min-w-px relative shrink-0 w-full" data-name="Frame" data-node-id="I554:3395;255:144">
-                                <img alt="" class="block max-w-none size-full" src="http://localhost:3845/assets/94cb5fcd27c55e1649c51eaff1438af79e965e17.svg" />
-                            </div>
+                    <div class="flex-row items-center gap-small" data-node-id="I554:3395;255:156">
+                        <div class="social-icon" style="background-color: #ed1f33; padding: 8px 6px; border-radius: 40px; width: 36px; height: 36px;" data-node-id="I554:3395;255:118">
+                            <img alt="" class="w-full h-full" src="http://localhost:3845/assets/94cb5fcd27c55e1649c51eaff1438af79e965e17.svg" />
                         </div>
-                        <div class="relative shrink-0 size-[36px]" data-node-id="I554:3395;255:126">
-                            <img alt="" class="block max-w-none size-full" src="http://localhost:3845/assets/e3b017d822bc9d301e584d2802ec47ee641f6462.svg" />
+                        <div class="social-icon relative" style="width: 36px; height: 36px;" data-node-id="I554:3395;255:126">
+                            <img alt="" class="w-full h-full" src="http://localhost:3845/assets/e3b017d822bc9d301e584d2802ec47ee641f6462.svg" />
                         </div>
-                        <div class="relative shrink-0 size-[36px]" data-node-id="I554:3395;255:152">
-                            <img alt="" class="block max-w-none size-full" src="http://localhost:3845/assets/1b7389e294f1ba168a214f44f1878ff516550c90.svg" />
+                        <div class="social-icon relative" style="width: 36px; height: 36px;" data-node-id="I554:3395;255:152">
+                            <img alt="" class="w-full h-full" src="http://localhost:3845/assets/1b7389e294f1ba168a214f44f1878ff516550c90.svg" />
                         </div>
                     </div>
                 </div>
-                <div class="content-stretch flex items-start justify-between relative shrink-0 w-[644px]" data-node-id="I554:3395;255:162">
-                    <div class="basis-0 box-border content-stretch flex flex-col gap-[24px] grow items-start min-h-px min-w-px pb-0 pt-[16px] px-0 relative shrink-0" data-node-id="I554:3395;255:158">
-                        <p class="font-['Pressio:No._43_Medium_Condensed',_sans-serif] leading-[normal] not-italic relative shrink-0 text-[#fcfcfc] text-[length:var(--type\/display\/h3-size,64px)] tracking-[-1.28px] w-full" data-node-id="I554:3395;255:130">
+                <div class="flex-row items-start justify-between" style="width: 644px; max-width: 100%;" data-node-id="I554:3395;255:162">
+                    <div class="flex-col gap-medium items-start" style="padding-top: 16px;" data-node-id="I554:3395;255:158">
+                        <p class="section-heading-medium w-full" data-node-id="I554:3395;255:130">
                             Contact
                         </p>
-                        <div class="content-stretch flex flex-col font-['Urbanist:Medium',_sans-serif] font-medium gap-[12px] items-start leading-[normal] relative shrink-0 text-[#f2f2f2] text-[length:var(--type\/paragraph\/p1,26px)] text-nowrap tracking-[-0.52px] w-full whitespace-pre" data-node-id="I554:3395;255:157">
-                            <p class="relative shrink-0" data-node-id="I554:3395;255:131">
+                        <div class="flex-col gap-small items-start paragraph" style="gap: 12px;" data-node-id="I554:3395;255:157">
+                            <p class="footer-link" data-node-id="I554:3395;255:131">
                                 +(1)415-000-0000
                             </p>
-                            <p class="relative shrink-0" data-node-id="I554:3395;255:132">
+                            <p class="footer-link" data-node-id="I554:3395;255:132">
                                 gamedev@art.edu
                             </p>
-                            <p class="relative shrink-0" data-node-id="I554:3395;255:133">
+                            <p class="footer-link" data-node-id="I554:3395;255:133">
                                 Get Directions
                             </p>
                         </div>
                     </div>
-                    <div class="basis-0 box-border content-stretch flex flex-col gap-[24px] grow items-start min-h-px min-w-px pb-0 pt-[16px] px-0 relative shrink-0" data-node-id="I554:3395;255:160">
-                        <p class="font-['Pressio:No._43_Medium_Condensed',_sans-serif] leading-[normal] not-italic relative shrink-0 text-[#fcfcfc] text-[length:var(--type\/display\/h3-size,64px)] text-nowrap tracking-[-1.28px] whitespace-pre" data-node-id="I554:3395;255:140">
+                    <div class="flex-col gap-medium items-start" style="padding-top: 16px;" data-node-id="I554:3395;255:160">
+                        <p class="section-heading-medium" style="white-space: pre;" data-node-id="I554:3395;255:140">
                             Explore
                         </p>
-                        <div class="content-stretch flex flex-col font-['Urbanist:Medium',_sans-serif] font-medium gap-[12px] items-start leading-[normal] relative shrink-0 text-[#f2f2f2] text-[length:var(--type\/paragraph\/p1,26px)] text-nowrap tracking-[-0.52px] w-full whitespace-pre" data-node-id="I554:3395;255:159">
-                            <p class="relative shrink-0" data-node-id="I554:3395;255:141">
+                        <div class="flex-col gap-small items-start paragraph" style="gap: 12px;" data-node-id="I554:3395;255:159">
+                            <p class="footer-link" data-node-id="I554:3395;255:141">
                                 Home
                             </p>
-                            <p class="relative shrink-0" data-node-id="I554:3395;255:142">
+                            <p class="footer-link" data-node-id="I554:3395;255:142">
                                 Lounge
                             </p>
-                            <p class="relative shrink-0" data-node-id="I554:3395;255:143">
+                            <p class="footer-link" data-node-id="I554:3395;255:143">
                                 Events
                             </p>
-                            <p class="relative shrink-0" data-node-id="I554:3395;255:151">
+                            <p class="footer-link" data-node-id="I554:3395;255:151">
                                 Connect
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="bg-[#050708] box-border content-stretch flex items-center justify-between px-[35px] py-[21px] relative shrink-0 w-full" data-name="Footer-Bottom" data-node-id="I554:3395;255:134">
-                <p class="font-['Urbanist:SemiBold',_sans-serif] font-semibold leading-[normal] relative shrink-0 text-[#f2f2f2] text-[length:var(--type\/paragraph\/p2,20px)] text-center text-nowrap tracking-[-0.4px] whitespace-pre" data-node-id="I554:3395;255:135">
+            <div class="footer-bottom" data-name="Footer-Bottom" data-node-id="I554:3395;255:134">
+                <p class="text-secondary" style="font-weight: 600; font-size: 20px; letter-spacing: -0.4px; text-align: center; white-space: pre;" data-node-id="I554:3395;255:135">
                     © 2025 Academy of Art University
                 </p>
-                <div class="content-stretch flex font-['Urbanist:SemiBold',_sans-serif] font-semibold gap-[12px] items-center leading-[normal] relative shrink-0 text-[#f2f2f2] text-[length:var(--type\/paragraph\/p2,20px)] text-center text-nowrap tracking-[-0.4px] whitespace-pre" data-node-id="I554:3395;255:136">
-                    <p class="relative shrink-0" data-node-id="I554:3395;255:137">
+                <div class="flex-row gap-small items-center text-secondary" style="font-weight: 600; font-size: 20px; letter-spacing: -0.4px; text-align: center; white-space: pre;" data-node-id="I554:3395;255:136">
+                    <p class="footer-link" data-node-id="I554:3395;255:137">
                         Privacy
                     </p>
-                    <p class="relative shrink-0" data-node-id="I554:3395;255:138">
+                    <p class="footer-link" data-node-id="I554:3395;255:138">
                         Terms
                     </p>
                 </div>
