@@ -1,0 +1,271 @@
+/* ============================================
+   Universal Stylesheet for Art U Esports
+   ============================================ */
+
+/* Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700&display=swap');
+
+/* ============================================
+   CSS Variables (Design Tokens)
+   ============================================ */
+:root {
+    /* Colors */
+    --color-primary: #ed1f33;
+    --color-bg-primary: #050708;
+    --color-bg-secondary: #1d252c;
+    --color-text-primary: #fcfcfc;
+    --color-text-secondary: #f2f2f2;
+    --color-placeholder: #f2f2f2;
+    
+    /* Typography */
+    --font-urbanist: 'Urbanist', sans-serif;
+    --font-pressio: 'Pressio', 'Arial Black', sans-serif;
+    
+    /* Spacing */
+    --spacing-section: 37px;
+    --spacing-container: 36px;
+}
+
+/* ============================================
+   Base Styles
+   ============================================ */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-urbanist);
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+}
+
+/* ============================================
+   Custom Font Classes
+   ============================================ */
+.font-pressio {
+    font-family: var(--font-pressio);
+    font-weight: 700;
+}
+
+.font-pressio-medium {
+    font-family: var(--font-pressio);
+    font-weight: 600;
+}
+
+/* ============================================
+   Common Button Styles
+   ============================================ */
+.btn-primary {
+    border: 3px solid var(--color-text-primary);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 36px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-text-primary);
+    color: var(--color-bg-primary);
+}
+
+.btn-primary:hover .btn-text {
+    color: var(--color-bg-primary);
+}
+
+.btn-primary .btn-text {
+    font-family: var(--font-urbanist);
+    font-weight: 600;
+    font-size: 40px;
+    line-height: normal;
+    letter-spacing: -0.8px;
+    color: var(--color-text-primary);
+    margin: 0;
+}
+
+.btn-red {
+    background-color: var(--color-primary);
+    border: 3px solid var(--color-primary);
+    color: var(--color-text-primary);
+}
+
+.btn-red:hover {
+    opacity: 0.9;
+}
+
+.btn-dark {
+    border: 3px solid var(--color-bg-primary);
+    color: var(--color-bg-primary);
+}
+
+.btn-dark:hover {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-secondary);
+}
+
+.btn-dark .btn-text {
+    color: var(--color-bg-primary);
+}
+
+/* ============================================
+   Navigation Styles
+   ============================================ */
+.nav-bar {
+    background-color: var(--color-bg-secondary);
+    box-sizing: border-box;
+    display: flex;
+    height: 96px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--spacing-container);
+    position: relative;
+    width: 100%;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 48px;
+    align-items: center;
+    font-family: var(--font-pressio);
+    font-size: 28px;
+    line-height: normal;
+    color: var(--color-text-primary);
+}
+
+.nav-menu-item {
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.nav-menu-item:hover {
+    color: var(--color-primary);
+}
+
+/* ============================================
+   Section Headings
+   ============================================ */
+.section-heading {
+    font-family: var(--font-pressio);
+    font-size: 128px;
+    line-height: normal;
+    letter-spacing: -2.56px;
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+    margin: 0;
+}
+
+.section-heading-medium {
+    font-family: var(--font-pressio-medium);
+    font-size: 64px;
+    line-height: normal;
+    letter-spacing: -1.28px;
+    color: var(--color-text-primary);
+    margin: 0;
+}
+
+/* ============================================
+   Common Card Styles
+   ============================================ */
+.card {
+    background-color: var(--color-bg-secondary);
+    border-radius: 16px;
+    padding: 15px 17px;
+    box-sizing: border-box;
+}
+
+.card-image-placeholder {
+    aspect-ratio: 478 / 260;
+    background-color: var(--color-placeholder);
+    border-radius: 8px;
+    width: 100%;
+}
+
+/* ============================================
+   Footer Styles
+   ============================================ */
+.footer-top {
+    background-color: var(--color-bg-secondary);
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 16px var(--spacing-container);
+    width: 100%;
+}
+
+.footer-bottom {
+    background-color: var(--color-bg-primary);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 21px 35px;
+    width: 100%;
+}
+
+.footer-link {
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: var(--color-primary);
+}
+
+.social-icon {
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.social-icon:hover {
+    opacity: 0.8;
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+.page-container {
+    background-color: var(--color-bg-primary);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 var(--spacing-container);
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.text-gradient {
+    background: linear-gradient(to bottom, var(--color-text-secondary), var(--color-bg-primary) 122.14%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ============================================
+   Responsive Adjustments
+   ============================================ */
+@media (max-width: 768px) {
+    .section-heading {
+        font-size: 64px;
+    }
+    
+    .btn-primary .btn-text {
+        font-size: 24px;
+    }
+    
+    .nav-menu {
+        font-size: 18px;
+        gap: 24px;
+    }
+}
+
