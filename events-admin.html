@@ -243,6 +243,7 @@
             <div class="nav-links">
                 <a href="admin.html" class="nav-link">Players</a>
                 <a href="events-admin.html" class="nav-link active">Events</a>
+                <button id="logoutBtn" class="btn btn-secondary" style="padding: 8px 16px; font-size: 14px;">Logout</button>
             </div>
             <div class="font-pressio text-[#fcfcfc] text-[28px]">
                 ADMIN - EVENTS
@@ -329,7 +330,35 @@
 
                         <div class="form-group">
                             <label for="eventTime">Event Time</label>
-                            <input type="time" id="eventTime">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;">
+                                <select id="eventHour" style="padding: 12px;">
+                                    <option value="">HH</option>
+                                    <option value="01">01</option>
+                                    <option value="02">02</option>
+                                    <option value="03">03</option>
+                                    <option value="04">04</option>
+                                    <option value="05">05</option>
+                                    <option value="06">06</option>
+                                    <option value="07">07</option>
+                                    <option value="08">08</option>
+                                    <option value="09">09</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                                <select id="eventMinute" style="padding: 12px;">
+                                    <option value="">MM</option>
+                                    <option value="00">00</option>
+                                    <option value="15">15</option>
+                                    <option value="30">30</option>
+                                    <option value="45">45</option>
+                                </select>
+                                <select id="eventAmPm" style="padding: 12px;">
+                                    <option value="">AM/PM</option>
+                                    <option value="AM">AM</option>
+                                    <option value="PM">PM</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
 
@@ -383,21 +412,32 @@
             // Check authentication
             const { data: { session } } = await supabase.auth.getSession();
 
-            // For development: Allow access without authentication
-            // TODO: Enable authentication when ready by uncommenting the auth check below
-            mainContent.style.display = 'block';
-            loadEvents();
-
-            /* Uncomment this section when authentication is set up:
             if (!session) {
-                authContainer.style.display = 'block';
-                mainContent.style.display = 'none';
+                // Not logged in, redirect to login page
+                window.location.href = 'admin-login.html';
+                return;
             } else {
                 mainContent.style.display = 'block';
                 loadEvents();
             }
-            */
         }
+
+        // Handle logout
+        document.addEventListener('DOMContentLoaded', () => {
+            const logoutBtn = document.getElementById('logoutBtn');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', async () => {
+                    try {
+                        const { error } = await supabase.auth.signOut();
+                        if (error) throw error;
+                        window.location.href = 'admin-login.html';
+                    } catch (error) {
+                        console.error('Logout error:', error);
+                        showAlert('Failed to logout: ' + error.message, 'error');
+                    }
+                });
+            }
+        });
 
         // Show alert message
         function showAlert(message, type = 'success') {
@@ -603,7 +643,23 @@
             const type = document.getElementById('eventType').value;
             const description = document.getElementById('eventDescription').value;
             const eventDate = document.getElementById('eventDate').value;
-            const eventTime = document.getElementById('eventTime').value;
+
+            // Convert 12-hour time to 24-hour format
+            const hour = document.getElementById('eventHour').value;
+            const minute = document.getElementById('eventMinute').value;
+            const ampm = document.getElementById('eventAmPm').value;
+            let eventTime = null;
+
+            if (hour && minute && ampm) {
+                let hour24 = parseInt(hour);
+                if (ampm === 'PM' && hour24 !== 12) {
+                    hour24 += 12;
+                } else if (ampm === 'AM' && hour24 === 12) {
+                    hour24 = 0;
+                }
+                eventTime = `${hour24.toString().padStart(2, '0')}:${minute}:00`;
+            }
+
             const location = document.getElementById('eventLocation').value;
             const imageFile = imageInput.files[0];
             let imageUrl = document.getElementById('existingImageUrl').value;
@@ -673,9 +729,31 @@
                 document.getElementById('eventType').value = event.type;
                 document.getElementById('eventDescription').value = event.description || '';
                 document.getElementById('eventDate').value = event.event_date;
-                document.getElementById('eventTime').value = event.event_time || '';
                 document.getElementById('eventLocation').value = event.location || '';
                 document.getElementById('existingImageUrl').value = event.picture_url || '';
+
+                // Parse and populate time fields
+                if (event.event_time) {
+                    const [hours, minutes] = event.event_time.split(':');
+                    let hour24 = parseInt(hours);
+                    let hour12 = hour24;
+                    let ampm = 'AM';
+
+                    if (hour24 >= 12) {
+                        ampm = 'PM';
+                        if (hour24 > 12) hour12 = hour24 - 12;
+                    } else if (hour24 === 0) {
+                        hour12 = 12;
+                    }
+
+                    document.getElementById('eventHour').value = hour12.toString().padStart(2, '0');
+                    document.getElementById('eventMinute').value = minutes;
+                    document.getElementById('eventAmPm').value = ampm;
+                } else {
+                    document.getElementById('eventHour').value = '';
+                    document.getElementById('eventMinute').value = '';
+                    document.getElementById('eventAmPm').value = '';
+                }
 
                 if (event.picture_url) {
                     imagePreview.src = event.picture_url;

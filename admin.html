@@ -199,6 +199,7 @@
             <div class="nav-links">
                 <a href="admin.html" class="nav-link active">Players</a>
                 <a href="events-admin.html" class="nav-link">Events</a>
+                <button id="logoutBtn" class="btn btn-secondary" style="padding: 8px 16px; font-size: 14px;">Logout</button>
             </div>
             <div class="font-pressio text-[#fcfcfc] text-[28px]">
                 ADMIN - PLAYERS
@@ -328,21 +329,32 @@
             // Check authentication
             const { data: { session } } = await supabase.auth.getSession();
 
-            // For development: Allow access without authentication
-            // TODO: Enable authentication when ready by uncommenting the auth check below
-            mainContent.style.display = 'block';
-            loadPlayers();
-
-            /* Uncomment this section when authentication is set up:
             if (!session) {
-                authContainer.style.display = 'block';
-                mainContent.style.display = 'none';
+                // Not logged in, redirect to login page
+                window.location.href = 'admin-login.html';
+                return;
             } else {
                 mainContent.style.display = 'block';
                 loadPlayers();
             }
-            */
         }
+
+        // Handle logout
+        document.addEventListener('DOMContentLoaded', () => {
+            const logoutBtn = document.getElementById('logoutBtn');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', async () => {
+                    try {
+                        const { error } = await supabase.auth.signOut();
+                        if (error) throw error;
+                        window.location.href = 'admin-login.html';
+                    } catch (error) {
+                        console.error('Logout error:', error);
+                        showAlert('Failed to logout: ' + error.message, 'error');
+                    }
+                });
+            }
+        });
 
         // Show alert message
         function showAlert(message, type = 'success') {
