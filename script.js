@@ -149,6 +149,26 @@ $(function(){
 
 
 
+// Dropdown Menu Toggle
+$(function(){
+	$(".nav-dropdown .nav-item").on("click", function(e){
+		e.preventDefault();
+		$(this).closest(".nav-dropdown").toggleClass("active");
+	});
+	
+	// Close dropdown when clicking outside
+	$(document).on("click", function(e){
+		if(!$(e.target).closest(".nav-dropdown").length) {
+			$(".nav-dropdown").removeClass("active");
+		}
+	});
+	
+	// Prevent dropdown from closing when clicking inside it
+	$(".dropdown-menu").on("click", function(e){
+		e.stopPropagation();
+	});
+});
+
 //Slideshow (only runs if elements exist)
 $(function(){
 	if($(".slideshow-captions-all").length > 0) {
