@@ -151,9 +151,34 @@ $(function(){
 
 // Dropdown Menu Toggle
 $(function(){
+	let dropdownTimeout;
+	
+	// Show dropdown on hover with delay
+	$(".nav-dropdown").on("mouseenter", function(){
+		clearTimeout(dropdownTimeout);
+		$(this).addClass("active");
+	});
+	
+	// Hide dropdown on mouse leave with small delay
+	$(".nav-dropdown").on("mouseleave", function(){
+		const $dropdown = $(this);
+		dropdownTimeout = setTimeout(function(){
+			$dropdown.removeClass("active");
+		}, 150); // Small delay to allow mouse movement
+	});
+	
+	// Allow the main link to navigate normally
 	$(".nav-dropdown .nav-item").on("click", function(e){
-		e.preventDefault();
-		$(this).closest(".nav-dropdown").toggleClass("active");
+		// Allow normal navigation
+	});
+	
+	// Toggle dropdown on click (for mobile/touch)
+	$(".nav-dropdown").on("click", function(e){
+		if($(e.target).hasClass("nav-item")) {
+			// Allow the link to work - don't prevent default
+			return;
+		}
+		$(this).toggleClass("active");
 	});
 	
 	// Close dropdown when clicking outside
