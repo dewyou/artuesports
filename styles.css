@@ -1369,9 +1369,205 @@ img {
     display: flex;
     flex-direction: column;
     gap: 72px;
-    padding: 72px var(--spacing-container) 120px;
+    padding: 0 24px;
     width: 100%;
     margin: 0;
+    background-color: var(--color-bg-900);
+    box-sizing: border-box;
+}
+
+/* News and Events Section */
+.news-events-section {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.title-filter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 0;
+}
+
+.title-news-events-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.news-events-title {
+    font-family: var(--font-pressio-bold-condensed);
+    font-weight: 700;
+    font-size: 128px;
+    line-height: 1;
+    letter-spacing: -2.56px;
+    text-transform: uppercase;
+    color: var(--color-core-50);
+    margin: 0;
+    width: 657px;
+    max-width: 100%;
+    white-space: pre-wrap;
+}
+
+.filter-sorting-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 0;
+}
+
+.filter-bar-container {
+    display: flex;
+    gap: 48px;
+    align-items: center;
+    font-size: 40px;
+    line-height: 1;
+}
+
+.events-page .events-filter-chip {
+    font-family: var(--font-urbanist);
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 1;
+    color: var(--color-core-100);
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.events-page .events-filter-chip.is-active {
+    font-weight: 500;
+    color: var(--color-primary);
+}
+
+.events-page .events-filter-chip:hover {
+    color: var(--color-primary);
+}
+
+.sorting-groups-container {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.sort-group-container {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+
+.sort-icon {
+    position: relative;
+    width: 75px;
+    height: 75px;
+    flex-shrink: 0;
+}
+
+.sort-icon img {
+    display: block;
+    max-width: none;
+    width: 100%;
+    height: 100%;
+}
+
+.sort-label {
+    font-family: var(--font-pressio-bold-condensed);
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 1;
+    letter-spacing: -0.96px;
+    color: var(--color-core-50);
+    margin: 0;
+}
+
+
+
+/* Event Recaps Section */
+.events-recaps-section {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.events-recap-title-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.events-recaps-title {
+    font-family: var(--font-pressio-bold-condensed);
+    font-weight: 700;
+    font-size: 128px;
+    line-height: 1;
+    letter-spacing: -2.56px;
+    text-transform: uppercase;
+    color: var(--color-core-50);
+    margin: 0;
+    width: 100%;
+    white-space: pre-wrap;
+}
+
+
+/* Calendar Section */
+.events-calendar-section {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.calendar-title-container {
+    height: 276px;
+    position: relative;
+    width: 657px;
+    max-width: 100%;
+    flex-shrink: 0;
+}
+
+.events-calendar-title {
+    font-family: var(--font-pressio-bold-condensed);
+    font-weight: 700;
+    font-size: 128px;
+    line-height: 1;
+    letter-spacing: -2.56px;
+    text-transform: uppercase;
+    color: var(--color-core-50);
+    margin: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 657px;
+    max-width: 100%;
+    white-space: pre-wrap;
+}
+
+.events-calendar-container {
+    background-color: var(--color-core-700);
+    height: 1116px;
+    border-radius: 16px;
+    width: 100%;
+    flex-shrink: 0;
 }
 
 /* Team Hero Section */
@@ -1862,9 +2058,14 @@ img {
     background-color: var(--color-bg-secondary);
 }
 
-/* Esports cards - use Core/700 color */
+/* Community cards - use primary red color (default) */
+.event-card[data-event-category="community"] {
+    background-color: var(--color-primary);
+}
+
+/* Esports cards - use Core/800 color (dark grey) */
 .event-card[data-event-category="esports"] {
-    background-color: var(--color-core-700);
+    background-color: var(--color-core-800);
 }
 
 /* Event recaps cards - use Core/800 color (override category colors) */
@@ -3184,5 +3385,61 @@ img {
         width: 40px;
         height: 40px;
         font-size: 24px;
+    }
+
+    /* Events Page Responsive */
+    .events-page {
+        padding: 48px 16px 72px;
+        gap: 48px;
+    }
+
+    .news-events-title,
+    .events-recaps-title,
+    .events-calendar-title {
+        font-size: 64px;
+        letter-spacing: -1.28px;
+    }
+
+    .filter-sorting-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+    }
+
+    .filter-bar-container {
+        gap: 24px;
+        font-size: 24px;
+    }
+
+    .events-page .events-filter-chip {
+        font-size: 24px;
+    }
+
+    .sorting-groups-container {
+        gap: 24px;
+    }
+
+    .sort-label {
+        font-size: 32px;
+    }
+
+    .sort-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+
+    .calendar-title-container {
+        height: auto;
+        width: 100%;
+    }
+
+    .events-calendar-title {
+        position: static;
+        width: 100%;
+    }
+
+    .events-calendar-container {
+        height: 400px;
     }
 }
