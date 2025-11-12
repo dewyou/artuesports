@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Player Management</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/kcl0vnz.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://use.typekit.net/pwz8phe.css">
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -190,22 +196,34 @@
 </head>
 <body>
     <div class="bg-[#050708] min-h-screen">
-        <!-- Nav-Bar -->
-        <div class="bg-[#1d252c] box-border content-stretch flex h-[96px] items-center justify-between px-[36px] py-0 relative w-full">
-            <div class="content-stretch flex flex-col gap-[7.5px] h-[57.828px] items-start relative shrink-0 w-[141.75px]">
-                <div class="flex-[1_0_0] min-h-px min-w-px relative shrink-0 w-full">
-                    <img alt="Art U Esports Logo" class="absolute inset-0 max-w-none object-center object-cover pointer-events-none size-full" src="https://www.figma.com/api/mcp/asset/f6f53366-26ec-48b0-b3f8-4ccfca8cc602" />
+        <header class="navbar">
+            <div class="nav-container">
+                <div class="nav-content">
+                    <!-- Logo -->
+                    <a href="index.html" class="logo-wordmark">
+                        <div class="logo-container">
+                            <img src="img/logo_white.png" alt="ARTU Esports Logo" class="logo-image">
+                        </div>
+                    </a>
+                    
+                    <!-- Navigation Menu -->
+                    <div class="frame">
+                        <div class="desktop-nav-menu">
+                            <p class="nav-item">TEAMS  ▾</p>
+                            <div class="nav-dropdown">
+                                <a href="lounge.html" class="nav-item active">LOUNGE  ▾</a>
+                                <div class="dropdown-menu">
+                                    <a href="knightarcade.html" class="dropdown-item"><h2>Knight Arcade</h2></a>
+                                    <a href="#" class="dropdown-item"><h2>Board Game Room</h2></a>
+                                </div>
+                            </div>
+                            <p class="nav-item">EVENTS  ▾</p>
+                            <p class="nav-item">CONNECT  ▾</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="nav-links">
-                <a href="admin.html" class="nav-link active">Players</a>
-                <a href="events-admin.html" class="nav-link">Events</a>
-                <button id="logoutBtn" class="btn btn-secondary" style="padding: 8px 16px; font-size: 14px;">Logout</button>
-            </div>
-            <div class="font-pressio text-[#fcfcfc] text-[28px]">
-                ADMIN - PLAYERS
-            </div>
-        </div>
+        </header>
 
         <!-- Admin Container -->
         <div class="admin-container">
@@ -630,5 +648,6 @@
         // Initialize on page load
         init();
     </script>
+    <script src="script.js"></script>
 </body>
 </html>
