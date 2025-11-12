@@ -124,35 +124,138 @@ body {
 /* ============================================
    Navigation Styles
    ============================================ */
-.nav-bar {
+.navbar {
     background-color: var(--color-bg-secondary);
     box-sizing: border-box;
-    display: flex;
     height: 96px;
+    width: 100%;
+    position: relative;
+}
+
+.nav-container {
+    width: 100%;
+    height: 100%;
+}
+
+.nav-content {
+    display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 100%;
     padding: 0 var(--spacing-container);
+}
+
+.logo-wordmark {
+    display: flex;
+    flex-direction: column;
+    gap: 7.5px;
+    height: 57.828px;
+    align-items: flex-start;
+    position: relative;
+    width: 141.75px;
+    text-decoration: none;
+}
+
+.logo-container {
+    flex: 1 0 0;
+    min-height: 0;
+    min-width: 0;
     position: relative;
     width: 100%;
 }
 
-.nav-menu {
-    display: flex;
-    gap: 48px;
-    align-items: center;
-    font-family: var(--font-pressio);
-    font-size: 28px;
-    line-height: normal;
-    color: var(--color-text-primary);
+.logo-image {
+    position: absolute;
+    inset: 0;
+    max-width: none;
+    object-position: center;
+    object-fit: cover;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
 }
 
-.nav-menu-item {
+.frame {
+    display: flex;
+    flex: 1 0 0;
+    gap: 129px;
+    align-items: center;
+    justify-content: flex-end;
+    min-height: 0;
+    min-width: 0;
+    position: relative;
+}
+
+.desktop-nav-menu {
+    display: flex;
+    font-family: var(--font-pressio-bold-condensed);
+    gap: 48px;
+    align-items: center;
+    line-height: normal;
+    position: relative;
+    color: var(--color-text-primary);
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.nav-item {
+    position: relative;
     cursor: pointer;
+    transition: color 0.3s ease;
+    margin: 0;
+    color: var(--color-text-primary);
+    font-family: var(--font-pressio-bold-condensed);
+    font-size: 28px;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration: none;
+}
+
+.nav-item:hover {
+    color: var(--color-primary);
+}
+
+.nav-item.active {
+    color: var(--color-primary);
+}
+
+.nav-dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--color-bg-secondary);
+    padding: 16px;
+    border-radius: 8px;
+    min-width: 200px;
+    z-index: 1000;
+}
+
+.nav-dropdown:hover .dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.dropdown-item {
+    text-decoration: none;
+    color: var(--color-text-primary);
     transition: color 0.3s ease;
 }
 
-.nav-menu-item:hover {
+.dropdown-item:hover {
     color: var(--color-primary);
+}
+
+.dropdown-item h2 {
+    margin: 0;
+    font-family: var(--font-pressio-medium-condensed);
+    font-size: 24px;
+    font-weight: 500;
 }
 
 /* ============================================
@@ -175,6 +278,803 @@ body {
     letter-spacing: -1.28px;
     color: var(--color-text-primary);
     margin: 0;
+}
+
+/* ============================================
+   Typography Classes - Responsive
+   ============================================ */
+
+/* H1 - Pressio Bold Condensed */
+.h1,
+.heading-h1,
+.h1-hero {
+    font-family: var(--font-pressio-bold-condensed);
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+    margin: 0;
+    /* Desktop - Default: 128px */
+    font-size: 128px;
+    letter-spacing: -2.56px;
+}
+
+/* H2 - Pressio Bold Condensed */
+.h2,
+.heading-h2 {
+    font-family: var(--font-pressio-bold-condensed);
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+    margin: 0;
+    /* Desktop */
+    font-size: 72px;
+    letter-spacing: -1.44px;
+}
+
+/* H3 - Pressio Medium Condensed */
+.h3,
+.heading-h3 {
+    font-family: var(--font-pressio-medium-condensed);
+    font-weight: 500;
+    line-height: 1;
+    color: var(--color-text-primary);
+    margin: 0;
+    /* Desktop */
+    font-size: 64px;
+    letter-spacing: -1.28px;
+}
+
+/* P1 - Urbanist Medium */
+.p1,
+.paragraph-p1 {
+    font-family: var(--font-urbanist);
+    font-weight: 500;
+    line-height: 1;
+    color: var(--color-text-primary);
+    margin: 0;
+    /* Desktop */
+    font-size: 26px;
+    letter-spacing: -0.52px;
+}
+
+/* P2 - Urbanist SemiBold */
+.p2,
+.paragraph-p2 {
+    font-family: var(--font-urbanist);
+    font-weight: 600;
+    line-height: 1;
+    color: var(--color-text-primary);
+    margin: 0;
+    /* Desktop */
+    font-size: 20px;
+    letter-spacing: -0.4px;
+}
+
+/* ============================================
+   Hero Text Container Styles
+   ============================================ */
+.hero-text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: flex-start;
+    position: relative;
+    width: 100%;
+    padding: 0 var(--spacing-container);
+}
+
+.hero-title-button-container {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    position: relative;
+    width: 100%;
+}
+
+.hero-title {
+    display: flex;
+    flex: 1 0 0;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 0;
+    min-width: 0;
+    position: relative;
+}
+
+.hero-description {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.hero-description-text {
+    flex: 1 0 0;
+    min-height: 0;
+    min-width: 0;
+    color: var(--color-text-secondary);
+    white-space: pre-wrap;
+}
+
+.hero-button {
+    flex-shrink: 0;
+}
+
+/* Hero Section Styles */
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    gap: 37px;
+    align-items: flex-start;
+    position: relative;
+    width: 100%;
+    padding: 0 var(--spacing-container);
+}
+
+.hero-carousel-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.carousel-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.hero-card-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    border-radius: 16px;
+    width: 100%;
+}
+
+.hero-image-placeholder {
+    background-color: var(--color-placeholder);
+    height: 971px;
+    border-radius: 16px;
+    width: 100%;
+}
+
+.carousel-pagination-indicator {
+    height: 20px;
+    position: relative;
+    width: 228px;
+}
+
+/* News and Events Section */
+.news-events-section {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    align-items: flex-start;
+    position: relative;
+    width: 100%;
+    padding: 0 var(--spacing-container);
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+}
+
+.filter-bar-container {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.filter-bar {
+    display: flex;
+    gap: 48px;
+    align-items: center;
+    position: relative;
+}
+
+.filter-item {
+    cursor: pointer;
+    transition: color 0.3s ease;
+    color: var(--color-text-secondary);
+}
+
+.filter-item.active {
+    color: var(--color-primary);
+}
+
+.filter-item:hover {
+    color: var(--color-primary);
+}
+
+.event-cards-container {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.event-card {
+    display: flex;
+    flex: 1 0 0;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+    min-height: 0;
+    min-width: 0;
+    padding: 17px 15px;
+    border-radius: 16px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.event-card-esports {
+    background-color: var(--color-bg-secondary);
+}
+
+.event-card-community {
+    background-color: var(--color-primary);
+}
+
+.event-card-image {
+    aspect-ratio: 478 / 260;
+    background-color: var(--color-placeholder);
+    border-radius: 8px;
+    width: 100%;
+}
+
+.event-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-start;
+    position: relative;
+    width: 100%;
+}
+
+.event-card-date {
+    width: 100%;
+    white-space: pre-wrap;
+    color: var(--color-text-primary);
+}
+
+.event-card-title-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+}
+
+.event-card-title {
+    color: var(--color-text-primary);
+}
+
+.event-card-description {
+    width: 100%;
+    white-space: pre-wrap;
+    color: var(--color-text-secondary);
+}
+
+.event-card-icon {
+    position: relative;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+}
+
+/* Teams Section */
+.teams-section {
+    display: flex;
+    flex-direction: column;
+    gap: 29.75px;
+    align-items: flex-end;
+    position: relative;
+    width: 100%;
+    padding: 0 var(--spacing-container);
+}
+
+.teams-cards-container {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.team-card {
+    height: 711px;
+    position: relative;
+    flex-shrink: 0;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.team-card-overwatch {
+    width: 596px;
+}
+
+.team-card-valorant {
+    width: 592px;
+}
+
+.team-card-mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.team-card-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.team-card-overlay {
+    position: absolute;
+    background-color: #d9d9d9;
+    height: 711px;
+    left: 0;
+    opacity: 0.5;
+    border-radius: 16px;
+    top: 0;
+    width: 596px;
+}
+
+.team-card-image-bg {
+    position: absolute;
+    height: 720.709px;
+    left: -113px;
+    opacity: 0.5;
+    top: -4px;
+    width: 826.64px;
+}
+
+.team-card-image-wrapper {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.team-card-image {
+    position: absolute;
+    height: 114.7%;
+    left: 0;
+    max-width: none;
+    top: -14.7%;
+    width: 100%;
+}
+
+.team-card-logo {
+    position: absolute;
+    left: 36px;
+    width: 524px;
+    height: 524px;
+    top: 94px;
+}
+
+.team-card-logo.valorant-logo {
+    position: absolute;
+    inset: 24.19% 12% 24.19% 12.16%;
+}
+
+.team-card-title {
+    position: absolute;
+    font-family: var(--font-pressio-bold-condensed);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-text-primary);
+    text-transform: uppercase;
+    font-size: 96px;
+    letter-spacing: -1.92px;
+}
+
+.team-card-overwatch .team-card-title {
+    left: 91px;
+    top: 304px;
+}
+
+.team-card-valorant .team-card-title {
+    position: absolute;
+    inset: 42.76% 19.26% 42.62% 19.26%;
+}
+
+.valorant-bg {
+    position: absolute;
+    height: 794.593px;
+    left: -398.73px;
+    opacity: 0.5;
+    top: -35.84px;
+    width: 1412.61px;
+    mask-image: url('https://www.figma.com/api/mcp/asset/14e3cd19-0554-4028-b510-91381f7113fd');
+    mask-size: 592px 711px;
+    mask-position: 398.727px 35.844px;
+}
+
+/* Lounge Section */
+.lounge-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    padding: 0 var(--spacing-container);
+}
+
+.lounge-card-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    border-radius: 16px;
+    width: 100%;
+}
+
+.lounge-content {
+    display: flex;
+    flex-direction: column;
+    gap: 29.75px;
+    height: 767px;
+    align-items: flex-end;
+    position: relative;
+    width: 100%;
+}
+
+.lounge-description {
+    flex: 1 0 0;
+    min-height: 0;
+    min-width: 0;
+    color: var(--color-text-primary);
+    width: 1696px;
+    max-width: 100%;
+    white-space: pre-wrap;
+}
+
+.lounge-cards-grid {
+    display: flex;
+    gap: 12.5px;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.lounge-card {
+    display: flex;
+    flex: 1 0 0;
+    flex-direction: column;
+    gap: 13px;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 0;
+    min-width: 0;
+    position: relative;
+}
+
+.lounge-card-knight-arcade {
+    width: 832px;
+    max-width: 100%;
+}
+
+.lounge-card-board-game {
+    aspect-ratio: 416 / 256.42;
+    flex: 1 0 0;
+    min-height: 0;
+    min-width: 0;
+}
+
+.lounge-card-inner {
+    box-sizing: border-box;
+    display: flex;
+    flex: 1 0 0;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+    min-width: 0;
+    overflow: hidden;
+    padding: 188px 48px;
+    position: relative;
+    border-radius: 16px;
+    width: 100%;
+}
+
+.lounge-card-bg {
+    position: absolute;
+    inset: 0;
+    max-width: none;
+    object-position: center;
+    object-fit: cover;
+    opacity: 0.5;
+    pointer-events: none;
+    border-radius: 16px;
+    width: 100%;
+    height: 100%;
+}
+
+.lounge-card-title {
+    font-family: var(--font-pressio-medium-condensed);
+    font-weight: 500;
+    line-height: 1;
+    color: var(--color-text-primary);
+    text-align: center;
+    font-size: 144px;
+    letter-spacing: -2.88px;
+    width: 100%;
+    white-space: pre-wrap;
+    position: relative;
+}
+
+.lounge-card-knight-arcade .lounge-card-title {
+    height: 136px;
+    width: 736px;
+    max-width: 100%;
+}
+
+/* Academic Opportunities Section */
+.academic-section {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    align-items: center;
+    padding: 0 12px;
+    position: relative;
+    width: 100%;
+}
+
+.academic-title {
+    text-align: center;
+    width: 100%;
+    white-space: pre-wrap;
+}
+
+.academic-content {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.academic-description {
+    min-width: 100%;
+    text-align: center;
+    white-space: pre-wrap;
+    width: min-content;
+}
+
+/* Community Section */
+.community-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    padding: 0 var(--spacing-container);
+}
+
+.community-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.community-card-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    border-radius: 16px;
+    width: 100%;
+}
+
+.community-card {
+    background-color: var(--color-placeholder);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    height: 971px;
+    align-items: flex-end;
+    padding: 72px;
+    position: relative;
+    border-radius: 16px;
+    width: 100%;
+}
+
+.community-title-wrapper {
+    height: 128px;
+    position: relative;
+    width: 675px;
+    max-width: 100%;
+}
+
+.community-title {
+    position: absolute;
+    left: 639px;
+    color: var(--color-bg-primary);
+    text-align: right;
+    top: -9.75px;
+    transform: translateX(-100%);
+    width: 656px;
+    max-width: 100%;
+    white-space: pre-wrap;
+}
+
+.community-description-wrapper {
+    text-transform: capitalize;
+    font-family: var(--font-urbanist);
+    font-weight: 400;
+    height: 290px;
+    line-height: 0;
+    position: relative;
+    color: var(--color-bg-secondary);
+    font-size: 0;
+    letter-spacing: -0.48px;
+    width: 646px;
+    max-width: 100%;
+    white-space: pre-wrap;
+}
+
+.community-description-text {
+    line-height: normal;
+    margin-bottom: 0;
+    font-size: 24px;
+    color: var(--color-bg-secondary);
+}
+
+.community-pagination {
+    height: 20px;
+    position: relative;
+    width: 228px;
+}
+
+/* Text Gradient */
+.text-gradient {
+    background-clip: text;
+    background-image: linear-gradient(to bottom, var(--color-text-secondary), var(--color-bg-primary) 122.14%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+/* Footer Logo Wrapper */
+.footer-logo-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 160px;
+    align-items: flex-start;
+    position: relative;
+    width: 252px;
+}
+
+.footer-logo {
+    aspect-ratio: 1265.8192138671875 / 516.40234375;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    position: relative;
+    width: 100%;
+}
+
+/* ============================================
+   Responsive Typography Breakpoints
+   ============================================ */
+
+/* Tablet Breakpoint (max-width: 1200px) */
+@media (max-width: 1200px) {
+    /* H1 - Tablet: 128px (no change from desktop) */
+    .h1,
+    .heading-h1,
+    .h1-hero,
+    .section-heading {
+        font-size: 128px;
+        letter-spacing: -2.56px;
+    }
+    
+    /* H2 - Tablet: 48px */
+    .h2,
+    .heading-h2 {
+        font-size: 48px;
+        letter-spacing: -0.96px;
+    }
+    
+    /* H3 - Tablet: 48px */
+    .h3,
+    .heading-h3,
+    .section-heading-medium {
+        font-size: 48px;
+        letter-spacing: -0.96px;
+    }
+    
+    /* P1 - Tablet: 20px */
+    .p1,
+    .paragraph-p1 {
+        font-size: 20px;
+        letter-spacing: -0.4px;
+    }
+    
+    /* P2 - Tablet: 18px */
+    .p2,
+    .paragraph-p2 {
+        font-size: 18px;
+        letter-spacing: -0.36px;
+    }
+}
+
+/* Mobile Breakpoint (max-width: 768px) */
+@media (max-width: 768px) {
+    /* H1 - Mobile: 64px */
+    .h1,
+    .heading-h1,
+    .h1-hero,
+    .section-heading {
+        font-size: 64px;
+        letter-spacing: -1.28px;
+    }
+    
+    /* H2 - Mobile: 40px */
+    .h2,
+    .heading-h2 {
+        font-size: 40px;
+        letter-spacing: -0.8px;
+    }
+    
+    /* H3 - Mobile: 32px */
+    .h3,
+    .heading-h3,
+    .section-heading-medium {
+        font-size: 32px;
+        letter-spacing: -0.64px;
+    }
+    
+    /* P1 - Mobile: 14px */
+    .p1,
+    .paragraph-p1 {
+        font-size: 14px;
+        letter-spacing: -0.28px;
+    }
+    
+    /* P2 - Mobile: 12px */
+    .p2,
+    .paragraph-p2 {
+        font-size: 12px;
+        letter-spacing: -0.24px;
+    }
 }
 
 /* ============================================
