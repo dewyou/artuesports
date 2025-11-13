@@ -21,15 +21,15 @@
                 <!-- Navigation Menu -->
                 <div class="frame">
                     <div class="desktop-nav-menu">
-                        <p class="nav-item">TEAMS  ▾</p>
+                        <a href="team.html" class="nav-item">TEAMS  ▾</a>
                         <div class="nav-dropdown">
-                            <a href="lounge.html" class="nav-item active">LOUNGE  ▾</a>
+                            <a href="lounge.html" class="nav-item">LOUNGE  ▾</a>
                             <div class="dropdown-menu">
                                 <a href="knightarcade.html" class="dropdown-item"><h2>Knight Arcade</h2></a>
-                                <a href="#" class="dropdown-item"><h2>Board Game Room</h2></a>
+                                <a href="boardgameroom.html" class="dropdown-item"><h2>Board Game Room</h2></a>
                             </div>
                         </div>
-                        <a href="events.html" class="nav-item active">EVENTS  ▾</a>
+                        <a href="events.html" class="nav-item">EVENTS  ▾</a>
                         <a href="connect.html" class="nav-item">CONNECT  ▾</a>
                     </div>
                 </div>
@@ -239,10 +239,47 @@
                 <h2 class="events-calendar-title font-pressio" data-node-id="548:910">Add to your Calendar!</h2>
             </div>
             <div class="events-calendar-container" data-name="google-calendar-embed-placeholder" data-node-id="548:911">
-                <!-- Google Calendar embed will go here -->
+                <iframe 
+                    src="https://calendar.google.com/calendar/embed?src=YOUR_CALENDAR_ID%40group.calendar.google.com&ctz=America%2FLos_Angeles" 
+                    class="events-calendar-embed"
+                    style="border: 0" 
+                    width="100%" 
+                    height="100%" 
+                    frameborder="0" 
+                    scrolling="no">
+                </iframe>
             </div>
         </section>
     </main>
+
+    <!-- Event Overlay -->
+    <div class="event-overlay" id="event-overlay">
+        <button class="event-overlay-close" id="event-overlay-close" aria-label="Close overlay"></button>
+        <div class="event-overlay-content">
+            <div class="event-overlay-hero">
+                <div class="event-overlay-title-container">
+                    <h1 class="event-overlay-title font-pressio" id="event-overlay-title">Event Title</h1>
+                </div>
+                <div class="event-overlay-main">
+                    <div class="event-overlay-left">
+                        <h2 class="event-overlay-subheading font-pressio-medium" id="event-overlay-subheading">Subheading</h2>
+                        <p class="event-overlay-description" id="event-overlay-description">Event description goes here.</p>
+                    </div>
+                    <div class="event-overlay-right">
+                        <div class="event-overlay-datetime">
+                            <p class="event-overlay-date font-pressio" id="event-overlay-date">10/22/2025</p>
+                            <p class="event-overlay-time font-pressio" id="event-overlay-time">3:00pm</p>
+                        </div>
+                        <button class="event-overlay-calendar-btn" id="event-overlay-calendar-btn">Add to your calendar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="event-overlay-media">
+                <div class="event-overlay-image" id="event-overlay-image"></div>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

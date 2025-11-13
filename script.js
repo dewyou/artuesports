@@ -221,3 +221,270 @@ $(function(){
 		}
 	}
 })
+
+// Navigation Active State Management
+$(function(){
+	// Get current page filename, handling various URL formats
+	let currentPage = window.location.pathname.split('/').pop();
+	
+	// Handle cases where there's no filename (root/index)
+	if (!currentPage || currentPage === '') {
+		currentPage = 'index.html';
+	}
+	
+	// Remove query strings and hash if present
+	currentPage = currentPage.split('?')[0].split('#')[0];
+	
+	// Remove active class from all nav items first
+	$('.nav-item').removeClass('active');
+	
+	// Map of page files to their corresponding nav links
+	const pageMap = {
+		'index.html': null, // Home page - no active nav item
+		'team.html': 'team.html',
+		'lounge.html': 'lounge.html',
+		'knightarcade.html': 'lounge.html', // Knight Arcade is under Lounge dropdown
+		'boardgameroom.html': 'lounge.html', // Board Game Room is under Lounge dropdown
+		'events.html': 'events.html',
+		'connect.html': 'connect.html',
+		'privacy.html': null,
+		'admin.html': null,
+		'admin-login.html': null,
+		'events-admin.html': null
+	};
+	
+	// Find the nav link that should be active
+	const activeLink = pageMap[currentPage];
+	
+	if (activeLink) {
+		// Find and activate the matching nav link
+		$('.nav-item[href="' + activeLink + '"]').addClass('active');
+	}
+});
+
+// Event Filter Functionality
+$(function(){
+	// Handle filter button clicks
+	$(".events-filter-chip").on("click", function(){
+		const $button = $(this);
+		const filterValue = $button.text().trim().toLowerCase();
+		
+		// Remove active class from all buttons
+		$(".events-filter-chip").removeClass("is-active");
+		
+		// Add active class to clicked button
+		$button.addClass("is-active");
+		
+		// Get all event cards in the main events grid (not recaps)
+		const $eventCards = $(".events-grid .event-card");
+		
+		// Remove filtered-out class from all cards first
+		$eventCards.removeClass("filtered-out");
+		
+		// Filter based on button text
+		if (filterValue === "all") {
+			// Show all cards - already done by removing filtered-out class
+		} else if (filterValue === "esports") {
+			// Hide community cards, show esports cards
+			$eventCards.each(function(){
+				const $card = $(this);
+				const category = $card.attr("data-event-category");
+				if (category !== "esports") {
+					$card.addClass("filtered-out");
+				}
+			});
+		} else if (filterValue === "community events") {
+			// Hide esports cards, show community cards
+			$eventCards.each(function(){
+				const $card = $(this);
+				const category = $card.attr("data-event-category");
+				if (category !== "community") {
+					$card.addClass("filtered-out");
+				}
+			});
+		}
+	});
+});
+
+// Event Overlay Functionality
+$(function(){
+	const $overlay = $("#event-overlay");
+	const $closeBtn = $("#event-overlay-close");
+	const $eventCards = $(".event-card");
+	
+	// Function to parse date string and extract date and time
+	function parseEventDate(dateString) {
+		// Format: "Thursday, October 12th | 10/16/25" or "10/16/25 | 3:00pm"
+		const parts = dateString.split("|").map(p => p.trim());
+		let date = "";
+		let time = "";
+		
+		// Look for date pattern (MM/DD/YY or MM/DD/YYYY)
+		const dateMatch = dateString.match(/(\d{1,2}\/\d{1,2}\/\d{2,4})/);
+		if (dateMatch) {
+			date = dateMatch[1];
+		}
+		
+		// Look for time pattern (H:MMam/pm or HH:MMam/pm)
+		const timeMatch = dateString.match(/(\d{1,2}:\d{2}\s*(am|pm|AM|PM))/i);
+		if (timeMatch) {
+			time = timeMatch[1].toLowerCase().replace(/\s/g, "");
+		} else {
+			// Default time if not found
+			time = "3:00pm";
+		}
+		
+		// If no date found, use a default
+		if (!date) {
+			date = "10/22/2025";
+		}
+		
+		return { date, time };
+	}
+	
+	// Function to get subheading based on category
+	function getSubheading(category) {
+		if (category === "esports") {
+			return "Esports event";
+		} else if (category === "community") {
+			return "In person contest";
+		}
+		return "Event";
+	}
+	
+	// Function to open overlay with event data
+	function openOverlay($card) {
+		// Get event data from card
+		const title = $card.find(".event-card-title").text().trim();
+		const description = $card.find(".event-card-description").text().trim();
+		const dateString = $card.find(".event-card-date").text().trim();
+		const category = $card.attr("data-event-category") || "";
+		const $cardImage = $card.find(".event-card-image");
+		
+		// Parse date and time
+		const { date, time } = parseEventDate(dateString);
+		
+		// Get subheading based on category
+		const subheading = getSubheading(category);
+		
+		// Populate overlay
+		$("#event-overlay-title").text(title);
+		$("#event-overlay-subheading").text(subheading);
+		$("#event-overlay-description").text(description);
+		$("#event-overlay-date").text(date);
+		$("#event-overlay-time").text(time);
+		
+		// Copy image if it exists
+		const $overlayImage = $("#event-overlay-image");
+		$overlayImage.empty();
+		
+		// Try to get background image or image source
+		const cardImageBg = $cardImage.css("background-image");
+		if (cardImageBg && cardImageBg !== "none") {
+			$overlayImage.css("background-image", cardImageBg);
+			$overlayImage.css("background-size", "cover");
+			$overlayImage.css("background-position", "center");
+		} else {
+			// Use placeholder background
+			$overlayImage.css("background-image", "none");
+			$overlayImage.css("background-color", "var(--color-placeholder)");
+		}
+		
+		// Show overlay
+		$overlay.addClass("is-open");
+		// Prevent body scroll when overlay is open
+		$("body").css("overflow", "hidden");
+	}
+	
+	// Function to close overlay
+	function closeOverlay() {
+		$overlay.removeClass("is-open");
+		$("body").css("overflow", "");
+	}
+	
+	// Handle event card clicks - only on cards in the events grid (not recaps)
+	$(".events-grid .event-card").on("click", function(e) {
+		e.preventDefault();
+		e.stopPropagation();
+		const $card = $(this);
+		// Don't open if card is filtered out
+		if (!$card.hasClass("filtered-out")) {
+			openOverlay($card);
+		}
+	});
+	
+	// Handle close button click
+	$closeBtn.on("click", function(e) {
+		e.preventDefault();
+		closeOverlay();
+	});
+	
+	// Handle overlay background click (close overlay) - only when clicking directly on overlay background
+	$overlay.on("click", function(e) {
+		// Only close if clicking directly on the overlay element itself (not on children)
+		if ($(e.target).is($overlay)) {
+			closeOverlay();
+		}
+	});
+	
+	// Prevent content clicks from bubbling up and closing overlay
+	$(".event-overlay-content, .event-overlay-close").on("click", function(e) {
+		e.stopPropagation();
+	});
+	
+	// Handle Escape key to close overlay
+	$(document).on("keydown", function(e) {
+		if (e.key === "Escape" && $overlay.hasClass("is-open")) {
+			closeOverlay();
+		}
+	});
+	
+	// Handle calendar button click
+	$("#event-overlay-calendar-btn").on("click", function(e) {
+		e.preventDefault();
+		// Get event details for calendar
+		const title = $("#event-overlay-title").text();
+		const date = $("#event-overlay-date").text();
+		const time = $("#event-overlay-time").text();
+		const description = $("#event-overlay-description").text();
+		
+		// Create Google Calendar URL
+		// Parse the date (assuming format MM/DD/YYYY or MM/DD/YY)
+		const dateParts = date.split("/");
+		let year = dateParts[2];
+		if (year.length === 2) {
+			year = "20" + year;
+		}
+		const month = dateParts[0].padStart(2, "0");
+		const day = dateParts[1].padStart(2, "0");
+		
+		// Parse time (assuming format H:MMam/pm)
+		const timeMatch = time.match(/(\d{1,2}):(\d{2})(am|pm)/i);
+		let hour = 15; // Default to 3pm
+		let minute = 0;
+		if (timeMatch) {
+			hour = parseInt(timeMatch[1]);
+			minute = parseInt(timeMatch[2]);
+			const ampm = timeMatch[3].toLowerCase();
+			if (ampm === "pm" && hour !== 12) {
+				hour += 12;
+			} else if (ampm === "am" && hour === 12) {
+				hour = 0;
+			}
+		}
+		
+		// Create start datetime (ISO 8601 format)
+		const startDate = new Date(`${year}-${month}-${day}T${hour.toString().padStart(2, "0")}:${minute.toString().padStart(2, "0")}:00`);
+		const endDate = new Date(startDate);
+		endDate.setHours(endDate.getHours() + 2); // Default 2 hour event
+		
+		const startStr = startDate.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
+		const endStr = endDate.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
+		
+		// Build Google Calendar URL
+		const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${startStr}/${endStr}&details=${encodeURIComponent(description)}`;
+		
+		// Open in new tab
+		window.open(calendarUrl, "_blank");
+	});
+});
