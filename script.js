@@ -71,9 +71,14 @@ function Carousel(el) {
 		carousel.timing = true; 
 
 		carousel.changeTimer = setTimeout(function(){
-			carousel.element.find(".carousel-paginate")
-			.eq(carousel.currentslide).addClass("active")
-			.siblings().removeClass("active");
+			// Update active state and distance classes
+			let paginateButtons = carousel.element.find(".carousel-paginate");
+			paginateButtons.removeClass("active");
+			paginateButtons.eq(carousel.currentslide).addClass("active");
+			
+			// Update distance-based colors
+			carousel.updatePaginationColors();
+			
 		cs.eq(carousel.currentslide).removeClass("atLeft atRight").addClass("moving atCenter");
 		cs.eq(carousel.previousSlide).removeClass("atLeft atRight atCenter").addClass("moving at" +
    	 (direction === true ? "Left" : "Right"));
@@ -110,11 +115,88 @@ carousel.pauseTimer = function () {
 		for(let i=0; i<carousel.numberOfSlides; i++) {
 			let btn = $("<button class='carousel-paginate'>");
 
-			if(i==0) btn.addClass("active");
+			if(i==0) {
+				btn.addClass("active");
+			}
 
 			buttondiv.append(btn);
 		}
 		carousel.element.find(".carousel-pagination-wrapper").append(buttondiv);
+		// Set initial distance classes
+		carousel.updatePaginationColors();
+	}
+	
+	carousel.updatePaginationColors = function(){
+		let paginateButtons = carousel.element.find(".carousel-paginate");
+		paginateButtons.removeClass("distance-1 distance-2 distance-3 distance-4");
+		
+		for(let i = 0; i < paginateButtons.length; i++) {
+			if(i !== carousel.currentslide) {
+				// Calculate position relative to active indicator
+				// Pattern: active is red, then gradient based on position
+				let forwardDist = (i - carousel.currentslide + carousel.numberOfSlides) % carousel.numberOfSlides;
+				let backwardDist = (carousel.currentslide - i + carousel.numberOfSlides) % carousel.numberOfSlides;
+				
+				// Use the minimum distance, but apply different colors based on direction
+				// For page 1 (index 0): forward gradient
+				// For page 2 (index 1): special pattern
+				if(carousel.currentslide === 0) {
+					// Page 1: forward gradient
+					if(forwardDist === 1) {
+						paginateButtons.eq(i).addClass("distance-1");
+					} else if(forwardDist === 2) {
+						paginateButtons.eq(i).addClass("distance-2");
+					} else if(forwardDist === 3) {
+						paginateButtons.eq(i).addClass("distance-3");
+					} else if(forwardDist >= 4) {
+						paginateButtons.eq(i).addClass("distance-4");
+					}
+				} else if(carousel.currentslide === 1) {
+					// Page 2: special pattern (active is index 1, second from left)
+					// Very left (index 0): rgba(217, 217, 217, 0.40)
+					// Second from left (index 1): red (active, handled separately)
+					// Middle (index 2): #D9D9D9
+					// 2nd from right (index 3): rgba(217, 217, 217, 0.80)
+					// Very right (index 4): rgba(217, 217, 217, 0.60)
+					if(i === 0) {
+						paginateButtons.eq(i).addClass("distance-4"); // very left: 0.40
+					} else if(i === 2) {
+						paginateButtons.eq(i).addClass("distance-1"); // middle: #D9D9D9
+					} else if(i === 3) {
+						paginateButtons.eq(i).addClass("distance-2"); // 2nd from right: 0.80
+					} else if(i === 4) {
+						paginateButtons.eq(i).addClass("distance-3"); // very right: 0.60
+					}
+				} else if(carousel.currentslide === 2) {
+					// Page 3: special pattern (active is index 2, middle)
+					// Very left (index 0): rgba(217, 217, 217, 0.60)
+					// Second from left (index 1): rgba(217, 217, 217, 0.40)
+					// Middle (index 2): red (active, handled separately)
+					// 2nd from right (index 3): #D9D9D9
+					// Very right (index 4): rgba(217, 217, 217, 0.80)
+					if(i === 0) {
+						paginateButtons.eq(i).addClass("distance-3"); // very left: 0.60
+					} else if(i === 1) {
+						paginateButtons.eq(i).addClass("distance-4"); // second from left: 0.40
+					} else if(i === 3) {
+						paginateButtons.eq(i).addClass("distance-1"); // 2nd from right: #D9D9D9
+					} else if(i === 4) {
+						paginateButtons.eq(i).addClass("distance-2"); // very right: 0.80
+					}
+				} else {
+					// For other pages, use forward distance
+					if(forwardDist === 1) {
+						paginateButtons.eq(i).addClass("distance-1");
+					} else if(forwardDist === 2) {
+						paginateButtons.eq(i).addClass("distance-2");
+					} else if(forwardDist === 3) {
+						paginateButtons.eq(i).addClass("distance-3");
+					} else if(forwardDist >= 4) {
+						paginateButtons.eq(i).addClass("distance-4");
+					}
+				}
+			}
+		}
 	}
 	carousel.init = function(){
 		if(carousel.element.data("timer")=="none"){
@@ -263,47 +345,193 @@ $(function(){
 });
 
 // Event Filter Functionality
-$(function(){
-	// Handle filter button clicks
-	$(".events-filter-chip").on("click", function(){
-		const $button = $(this);
-		const filterValue = $button.text().trim().toLowerCase();
+$(document).ready(function(){
+	console.log("Event filter script loaded");
+	
+	// Wait a bit to ensure DOM is fully ready
+	setTimeout(function() {
+		// Try both direct binding and event delegation
+		const $filterButtons = $(".events-filter-chip");
+		console.log("Found filter buttons:", $filterButtons.length);
 		
-		// Remove active class from all buttons
-		$(".events-filter-chip").removeClass("is-active");
+		// Direct binding
+		$filterButtons.off("click.filterEvents").on("click.filterEvents", function(e){
+			e.stopPropagation();
+			const $button = $(this);
+			const filterValue = $button.text().trim().toLowerCase();
+			
+			console.log("Filter button clicked:", filterValue);
+			console.log("Button element:", $button[0]);
+			
+			// Remove active class from all buttons
+			$(".events-filter-chip").removeClass("is-active");
+			
+			// Add active class to clicked button
+			$button.addClass("is-active");
+			
+			// Get all event cards in the main events grid (not recaps)
+			const $eventCards = $(".events-grid .event-card");
+			console.log("Found event cards:", $eventCards.length);
+			
+			if ($eventCards.length === 0) {
+				console.error("No event cards found! Check selector: .events-grid .event-card");
+				return;
+			}
+			
+			// Remove filtered-out class from all cards first and show them
+			$eventCards.removeClass("filtered-out").show();
+			
+			// Filter based on button text
+			// Esports cards have background color #1D252C (dark gray)
+			// Community cards have background color #ED1F33 (red)
+			if (filterValue === "all") {
+				// Show all cards
+				console.log("Showing all cards");
+			} else if (filterValue === "esports") {
+				// Show only esports cards (background: #1D252C)
+				// Hide community cards
+				let hiddenCount = 0;
+				let shownCount = 0;
+				$eventCards.each(function(){
+					const $card = $(this);
+					const category = $card.attr("data-event-category");
+					console.log("Card category:", category);
+					if (category !== "esports") {
+						$card.addClass("filtered-out");
+						$card.hide(); // Direct hide as backup
+						hiddenCount++;
+					} else {
+						$card.removeClass("filtered-out");
+						$card.show(); // Ensure visible
+						shownCount++;
+					}
+				});
+				console.log("Filtered to esports. Shown:", shownCount, "Hidden:", hiddenCount);
+			} else if (filterValue === "community events") {
+				// Show only community cards (background: #ED1F33)
+				// Hide esports cards
+				let hiddenCount = 0;
+				let shownCount = 0;
+				$eventCards.each(function(){
+					const $card = $(this);
+					const category = $card.attr("data-event-category");
+					console.log("Card category:", category);
+					if (category !== "community") {
+						$card.addClass("filtered-out");
+						$card.hide(); // Direct hide as backup
+						hiddenCount++;
+					} else {
+						$card.removeClass("filtered-out");
+						$card.show(); // Ensure visible
+						shownCount++;
+					}
+				});
+				console.log("Filtered to community. Shown:", shownCount, "Hidden:", hiddenCount);
+			} else {
+				console.warn("Unknown filter value:", filterValue);
+			}
+		});
 		
-		// Add active class to clicked button
-		$button.addClass("is-active");
+		// Also use event delegation as backup
+		$(document).off("click.filterEventsDelegated").on("click.filterEventsDelegated", ".events-filter-chip", function(e){
+			// This will be handled by the direct binding above
+		});
+	}, 100);
+});
+
+// Index.html Event Filter Functionality
+$(document).ready(function(){
+	console.log("Index event filter script loaded");
+	
+	// Wait a bit to ensure DOM is fully ready
+	setTimeout(function() {
+		// Try both direct binding and event delegation
+		const $filterButtons = $(".index-filter-chip");
+		console.log("Found index filter buttons:", $filterButtons.length);
 		
-		// Get all event cards in the main events grid (not recaps)
-		const $eventCards = $(".events-grid .event-card");
-		
-		// Remove filtered-out class from all cards first
-		$eventCards.removeClass("filtered-out");
-		
-		// Filter based on button text
-		if (filterValue === "all") {
-			// Show all cards - already done by removing filtered-out class
-		} else if (filterValue === "esports") {
-			// Hide community cards, show esports cards
-			$eventCards.each(function(){
-				const $card = $(this);
-				const category = $card.attr("data-event-category");
-				if (category !== "esports") {
-					$card.addClass("filtered-out");
-				}
-			});
-		} else if (filterValue === "community events") {
-			// Hide esports cards, show community cards
-			$eventCards.each(function(){
-				const $card = $(this);
-				const category = $card.attr("data-event-category");
-				if (category !== "community") {
-					$card.addClass("filtered-out");
-				}
-			});
-		}
-	});
+		// Direct binding
+		$filterButtons.off("click.indexFilterEvents").on("click.indexFilterEvents", function(e){
+			e.stopPropagation();
+			const $button = $(this);
+			const filterValue = $button.text().trim().toLowerCase();
+			
+			console.log("Index filter button clicked:", filterValue);
+			
+			// Remove active class from all buttons and reset colors
+			$(".index-filter-chip").removeClass("is-active");
+			$(".index-filter-chip").removeClass("font-medium");
+			$(".index-filter-chip").addClass("font-normal");
+			$(".index-filter-chip").css("color", "#f2f2f2");
+			
+			// Add active class to clicked button and set active color
+			$button.addClass("is-active");
+			$button.removeClass("font-normal");
+			$button.addClass("font-medium");
+			$button.css("color", "#ed1f33");
+			
+			// Get all event cards in the index events grid
+			const $eventCards = $(".index-events-grid .event-card");
+			console.log("Found index event cards:", $eventCards.length);
+			
+			if ($eventCards.length === 0) {
+				console.error("No event cards found! Check selector: .index-events-grid .event-card");
+				return;
+			}
+			
+			// Remove filtered-out class from all cards first and show them
+			$eventCards.removeClass("filtered-out").show();
+			
+			// Filter based on button text
+			// Esports cards have background color #1D252C (dark gray)
+			// Community cards have background color #ED1F33 (red)
+			if (filterValue === "all") {
+				// Show all cards (3 cards - 1 row)
+				console.log("Showing all cards");
+			} else if (filterValue === "esports") {
+				// Show only esports cards (background: #1D252C)
+				// Hide community cards
+				let hiddenCount = 0;
+				let shownCount = 0;
+				$eventCards.each(function(){
+					const $card = $(this);
+					const category = $card.attr("data-event-category");
+					console.log("Index card category:", category);
+					if (category !== "esports") {
+						$card.addClass("filtered-out");
+						$card.hide(); // Direct hide as backup
+						hiddenCount++;
+					} else {
+						$card.removeClass("filtered-out");
+						$card.show(); // Ensure visible
+						shownCount++;
+					}
+				});
+				console.log("Index filtered to esports. Shown:", shownCount, "Hidden:", hiddenCount);
+			} else if (filterValue === "community events") {
+				// Show only community cards (background: #ED1F33)
+				// Hide esports cards
+				let hiddenCount = 0;
+				let shownCount = 0;
+				$eventCards.each(function(){
+					const $card = $(this);
+					const category = $card.attr("data-event-category");
+					console.log("Index card category:", category);
+					if (category !== "community") {
+						$card.addClass("filtered-out");
+						$card.hide(); // Direct hide as backup
+						hiddenCount++;
+					} else {
+						$card.removeClass("filtered-out");
+						$card.show(); // Ensure visible
+						shownCount++;
+					}
+				});
+				console.log("Index filtered to community. Shown:", shownCount, "Hidden:", hiddenCount);
+			} else {
+				console.warn("Unknown index filter value:", filterValue);
+			}
+		});
+	}, 100);
 });
 
 // Event Overlay Functionality
