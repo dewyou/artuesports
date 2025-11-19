@@ -323,7 +323,8 @@ $(function(){
 	// Map of page files to their corresponding nav links
 	const pageMap = {
 		'index.html': null, // Home page - no active nav item
-		'team.html': 'team.html',
+		'overwatch.html': 'teams.html',
+		'teams.html': 'teams.html',
 		'lounge.html': 'lounge.html',
 		'knightarcade.html': 'lounge.html', // Knight Arcade is under Lounge dropdown
 		'boardgameroom.html': 'lounge.html', // Board Game Room is under Lounge dropdown
