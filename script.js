@@ -616,6 +616,8 @@ $(function(){
 		$("#event-overlay-description").text(description);
 		$("#event-overlay-date").text(date);
 		$("#event-overlay-time").text(time);
+		$("#event-overlay-date-tablet").text(date);
+		$("#event-overlay-time-tablet").text(time);
 		
 		// Copy image if it exists
 		const $overlayImage = $("#event-overlay-image");
