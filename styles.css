@@ -955,10 +955,11 @@ a:hover {
     object-fit: contain;
     object-position: center;
     transition: filter 0.3s ease;
+    filter: brightness(0) invert(1); /* Makes icons white (--color-core-50) */
 }
 
 .social-icon:hover img {
-    filter: drop-shadow(0 0 8px var(--color-primary));
+    filter: brightness(0) invert(1) drop-shadow(0 0 8px var(--color-primary));
 }
 
 .social-icon-primary {
@@ -978,6 +979,7 @@ a:hover {
     height: 24px;
     object-fit: contain;
     object-position: center;
+    filter: brightness(0) invert(1); /* Makes icons white (--color-core-50) */
 }
 
 .social-icon-standard {
