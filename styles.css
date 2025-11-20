@@ -4264,6 +4264,19 @@ img {
     }
 }
 
+/* Teams Cards Stack Vertically at 1280px */
+@media screen and (max-width: 1280px) {
+    .teams-cards-container {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .team-card {
+        width: 100%;
+        flex: none;
+    }
+}
+
 /* Tablet Breakpoint (834px - iPad Pro portrait, etc.) */
 @media screen and (min-width: 769px) and (max-width: 900px) {
     /* Navigation adjustments for tablet */
