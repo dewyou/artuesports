@@ -3199,10 +3199,10 @@ img {
     display: flex;
     gap: 15px;
     align-items: flex-start;
-    padding: 0 36px;
+    padding: 0 var(--spacing-container);
     width: 100%;
     box-sizing: border-box;
-    margin-top: 37px;
+    margin-top: var(--spacing-section);
 }
 
 .location-content {
@@ -3317,6 +3317,8 @@ img {
     height: 100%;
     border: 0;
     display: block;
+    border: none;
+    border-radius: 0;
 }
 
 /* Links Section */
@@ -4122,6 +4124,132 @@ img {
    Responsive Typography & Media Queries
    ============================================ */
 
+/* Large Desktop Breakpoint (min-width: 1921px) */
+@media screen and (min-width: 1921px) {
+    /* Location Section - Large Desktop */
+    .location-section {
+        padding: 0 var(--spacing-container);
+        gap: 20px;
+    }
+    
+    .location-content {
+        width: 1000px;
+        gap: 35px;
+    }
+    
+    .location-heading {
+        font-size: 80px;
+        letter-spacing: -1.6px;
+        height: 140px;
+    }
+    
+    .location-label {
+        font-size: 88px;
+        letter-spacing: -1.76px;
+    }
+    
+    .location-spacer {
+        font-size: 36px;
+    }
+    
+    .location-hours-column-left {
+        width: 450px;
+    }
+    
+    .location-hours-column-right {
+        width: 410px;
+    }
+    
+    .location-map {
+        width: 900px;
+        height: 750px;
+    }
+}
+
+/* Medium Desktop Breakpoint (min-width: 1441px) and (max-width: 1920px) */
+@media screen and (min-width: 1441px) and (max-width: 1920px) {
+    /* Location Section - Medium Desktop */
+    .location-section {
+        padding: 0 var(--spacing-container);
+        gap: 18px;
+    }
+    
+    .location-content {
+        width: 920px;
+        gap: 32px;
+    }
+    
+    .location-heading {
+        font-size: 72px;
+        letter-spacing: -1.44px;
+        height: 130px;
+    }
+    
+    .location-label {
+        font-size: 80px;
+        letter-spacing: -1.6px;
+    }
+    
+    .location-spacer {
+        font-size: 34px;
+    }
+    
+    .location-hours-column-left {
+        width: 420px;
+    }
+    
+    .location-hours-column-right {
+        width: 380px;
+    }
+    
+    .location-map {
+        width: 850px;
+        height: 700px;
+    }
+}
+
+/* Small Desktop Breakpoint (min-width: 1025px) and (max-width: 1440px) */
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+    /* Location Section - Small Desktop */
+    .location-section {
+        padding: 0 var(--spacing-container);
+        gap: 15px;
+    }
+    
+    .location-content {
+        width: 840px;
+        gap: 29px;
+    }
+    
+    .location-heading {
+        font-size: 64px;
+        letter-spacing: -1.28px;
+        height: 120px;
+    }
+    
+    .location-label {
+        font-size: 72px;
+        letter-spacing: -1.44px;
+    }
+    
+    .location-spacer {
+        font-size: 32px;
+    }
+    
+    .location-hours-column-left {
+        width: 394px;
+    }
+    
+    .location-hours-column-right {
+        width: 358px;
+    }
+    
+    .location-map {
+        width: 805px;
+        height: 652px;
+    }
+}
+
 /* Tablet Breakpoint (max-width: 1024px) */
 @media screen and (max-width: 1024px) {
     /* H1: Tablet - 128px */
@@ -4203,6 +4331,84 @@ img {
     .mobile-menu-overlay,
     .mobile-menu-panel {
         display: block;
+    }
+    
+    /* Location Section - Tablet */
+    .location-section {
+        flex-direction: column;
+        gap: 72px;
+        padding: 0 24px;
+        margin-top: var(--spacing-section);
+        align-items: flex-start;
+    }
+    
+    .location-content {
+        width: 100%;
+        max-width: 100%;
+        gap: 72px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .location-heading {
+        font-size: 128px;
+        letter-spacing: -2.56px;
+        height: 115px;
+        width: 100%;
+        margin-bottom: 0;
+    }
+    
+    .location-hours-container {
+        flex-direction: column;
+        gap: 0;
+        width: 285px;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+    
+    .location-hours-column {
+        height: auto;
+        width: 100%;
+    }
+    
+    .location-hours-column-left {
+        width: 100%;
+    }
+    
+    .location-hours-column-right {
+        width: 100%;
+        margin-top: 0;
+    }
+    
+    .location-label {
+        font-size: 32px;
+        letter-spacing: -0.64px;
+        font-weight: 500;
+        font-family: 'pressio-condensed', sans-serif;
+    }
+    
+    .location-spacer {
+        font-size: 14px;
+    }
+    
+    /* Tablet: Position map next to hours container */
+    .location-section {
+        position: relative;
+    }
+    
+    .location-map {
+        position: absolute;
+        right: 24px;
+        top: calc(115px + 72px); /* After heading + gap */
+        width: 485px;
+        height: 393px;
+        max-width: calc(100% - 48px); /* Account for padding */
+        flex-shrink: 0;
+    }
+    
+    .location-hours-container {
+        width: 285px;
     }
 }
 
@@ -5081,37 +5287,86 @@ img {
     /* Location Section - Mobile */
     .location-section {
         flex-direction: column;
-        gap: 24px;
+        gap: 18px;
         padding: 0 16px;
+        margin-top: var(--spacing-section);
+        align-items: flex-start;
+        position: relative !important;
     }
 
     .location-content {
         width: 100%;
+        max-width: 100%;
+        gap: 18px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+        z-index: 1;
+        margin-bottom: 0;
     }
 
     .location-heading {
         font-size: 64px;
-        height: auto;
+        letter-spacing: -1.28px;
+        height: 63px;
+        width: 100%;
+        margin-bottom: 0;
     }
 
     .location-hours-container {
-        flex-direction: column;
-        gap: 24px;
+        flex-direction: row;
+        gap: 0;
+        width: 100%;
+        align-items: flex-start;
+        justify-content: space-between;
+        height: auto;
+        min-height: 136px;
     }
 
     .location-hours-column {
         height: auto;
-        width: 100%;
     }
 
-    .location-hours-column-left,
+    .location-hours-column-left {
+        width: 201px;
+        flex-shrink: 0;
+        height: auto;
+        min-height: 121px;
+    }
+
     .location-hours-column-right {
-        width: 100%;
+        width: 202px;
+        flex-shrink: 0;
+        height: auto;
+        min-height: 120px;
+        margin-top: 0;
     }
 
+    .location-label {
+        font-size: 20px;
+        letter-spacing: -0.4px;
+        font-weight: 700;
+        font-family: 'pressio-condensed', sans-serif;
+    }
+    
+    .location-spacer {
+        font-size: 14px;
+    }
+    
     .location-map {
         width: 100%;
-        height: 400px;
+        aspect-ratio: 1062 / 861;
+        max-width: 100%;
+        position: static !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        right: auto !important;
+        top: auto !important;
+        left: auto !important;
+        bottom: auto !important;
+        border-radius: 16px;
+        z-index: 0;
     }
 
     /* Tour Video Section - Mobile */
