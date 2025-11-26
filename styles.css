@@ -1161,6 +1161,61 @@ a:hover {
 /* ============================================
    Common Button Styles
    ============================================ */
+
+/* Base button styles - can be used with <button> or <a> */
+.btn-filled,
+.btn-lined {
+    box-sizing: border-box;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 54px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border: none;
+    font-family: var(--font-urbanist);
+    font-weight: 500;
+    font-size: 14px; /* P1 Desktop */
+    line-height: 1;
+    letter-spacing: -0.28px;
+    white-space: nowrap;
+    width: auto;
+    height: auto;
+}
+
+/* Filled Button - Red background with white text */
+.btn-filled {
+    background-color: var(--color-primary);
+    color: var(--color-core-50);
+    border: none;
+}
+
+.btn-filled:hover {
+    background-color: var(--color-core-50);
+    border: 1.5px solid var(--color-primary);
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+/* Lined Button - Transparent background with white border */
+.btn-lined {
+    background-color: transparent;
+    border: 1.5px solid var(--color-text-primary);
+    color: var(--color-text-primary);
+}
+
+.btn-lined:hover {
+    background-color: var(--color-core-50);
+    border: 1.5px solid var(--color-primary);
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+/* Legacy button classes - kept for backward compatibility but deprecated */
 .btn-primary {
     border: 3px solid var(--color-text-primary);
     box-sizing: border-box;
@@ -5016,6 +5071,14 @@ img {
         font-weight: 600; /* SemiBold */
         color: var(--color-core-100); /* Figma: #F2F2F2 */
     }
+
+    /* Button Styles - Tablet */
+    .btn-filled,
+    .btn-lined {
+        font-size: 14px; /* P1 Tablet - same as desktop */
+        letter-spacing: -0.28px;
+        padding: 12px 54px;
+    }
 }
 
 /* Smooth transition breakpoint (769px) - prepare for mobile */
@@ -5346,34 +5409,33 @@ img {
 }
 
 /* Community card section */
-    [data-name="04-community-card-section"] {
-        gap: 12px;
-    }
+[data-name="04-community-card-section"] {
+    gap: 12px;
+}
 
-    /* Filter bar adjustments */
-    [data-name="filter-bar-container"] {
-        gap: 36px;
-    }
+/* Filter bar adjustments */
+[data-name="filter-bar-container"] {
+    gap: 36px;
+}
 
-    .index-filter-chip {
-        font-size: 18px;
-    }
+.index-filter-chip {
+    font-size: 18px;
+}
 
-    /* Academic Opportunities Title - wrap to 2 rows on tablet */
-    .academic-opportunities-title {
-        white-space: normal;
-        line-height: 1.1;
-        word-break: break-word;
-        max-width: 100%;
-    }
+/* Academic Opportunities Title - wrap to 2 rows on tablet */
+.academic-opportunities-title {
+    white-space: normal;
+    line-height: 1.1;
+    word-break: break-word;
+    max-width: 100%;
+}
 
-    /* News and Events Title - wrap to 2 rows on tablet */
-    .news-events-title-responsive {
-        white-space: normal;
-        line-height: 1.1;
-        word-break: break-word;
-        max-width: 100%;
-    }
+/* News and Events Title - wrap to 2 rows on tablet */
+.news-events-title-responsive {
+    white-space: normal;
+    line-height: 1.1;
+    word-break: break-word;
+    max-width: 100%;
 }
 
 /* Responsive Adjustments */
@@ -6234,6 +6296,14 @@ img {
 
     .links-community-description {
         height: auto;
+    }
+
+    /* Button Styles - Mobile */
+    .btn-filled,
+    .btn-lined {
+        font-size: 14px; /* P1 Mobile - same as desktop */
+        letter-spacing: -0.28px;
+        padding: 12px 54px;
     }
     
     /* Footer - Mobile */
