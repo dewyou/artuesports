@@ -3703,6 +3703,177 @@ img {
     border-radius: 0;
 }
 
+/* News and Events Section */
+.news-events-section {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    align-items: flex-start;
+    padding: 0 36px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 37px;
+    margin-bottom: 37px;
+}
+
+.news-events-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.news-events-title {
+    font-family: var(--font-pressio-bold-condensed);
+    font-weight: 700;
+    font-size: 128px; /* H1 Desktop */
+    line-height: 1;
+    letter-spacing: -2.56px;
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+    margin: 0;
+    white-space: nowrap;
+}
+
+.news-events-see-all-btn {
+    border: 3px solid var(--color-text-primary);
+    background: transparent;
+    padding: 16px 36px;
+    border-radius: 16px;
+    font-family: var(--font-urbanist);
+    font-weight: 600;
+    font-size: 24px; /* P2 Desktop */
+    line-height: 1;
+    letter-spacing: -0.48px;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.news-events-see-all-btn:hover {
+    background-color: var(--color-text-primary);
+    color: var(--color-bg-primary);
+}
+
+.news-events-filter-bar {
+    display: flex;
+    gap: 48px;
+    align-items: center;
+    width: 100%;
+}
+
+.news-events-filter-chip {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-family: var(--font-urbanist);
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 1;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: color 0.2s ease;
+    text-align: center;
+}
+
+.news-events-filter-chip:hover,
+.news-events-filter-chip:focus {
+    color: var(--color-primary);
+    outline: none;
+}
+
+.news-events-filter-chip.is-active {
+    font-weight: 500;
+    color: var(--color-primary);
+}
+
+.news-events-cards-container {
+    display: flex;
+    gap: 18px;
+    align-items: stretch;
+    width: 100%;
+}
+
+.news-events-cards-container .event-card {
+    flex: 1 0 0;
+    min-width: 0;
+    padding: 12px 14px;
+    border: none; /* Remove border for news-events section */
+}
+
+.news-events-cards-container .event-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100%;
+}
+
+.news-events-cards-container .event-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+}
+
+.news-events-cards-container .event-card-date {
+    font-family: var(--font-urbanist);
+    font-weight: 600;
+    font-size: 12px; /* P2 Desktop from Figma */
+    line-height: 1;
+    letter-spacing: -0.24px;
+    color: var(--color-text-primary);
+    margin: 0;
+}
+
+.news-events-cards-container .event-card-title-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+}
+
+.news-events-cards-container .event-card-title {
+    font-family: var(--font-pressio-medium-condensed);
+    font-weight: 500;
+    font-size: 32px; /* H3 Desktop from Figma */
+    line-height: 1;
+    letter-spacing: -0.64px;
+    color: var(--color-text-primary);
+    margin: 0;
+    width: 100%;
+}
+
+.news-events-cards-container .event-card-icon {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    margin-top: auto;
+}
+
+.news-events-cards-container .event-card-icon img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    filter: brightness(0) invert(1); /* White icon for dark cards */
+}
+
+.news-events-cards-container .event-card[data-event-category="community"] .event-card-icon img {
+    filter: brightness(0) invert(1); /* White icon for red community cards */
+}
+
+.news-events-cards-container .event-card[data-event-category="esports"] .event-card-icon img {
+    filter: brightness(0) saturate(100%) invert(27%) sepia(94%) saturate(7158%) hue-rotate(346deg) brightness(93%) contrast(92%); /* Red icon for dark esports cards */
+}
+
 /* Links Section */
 .links-section {
     display: flex;
@@ -4925,6 +5096,46 @@ img {
         aspect-ratio: 1062 / 708; /* Figma: aspect ratio */
         width: 100%;
         border-radius: 16px;
+    }
+
+    /* News and Events Section - Tablet */
+    .news-events-section {
+        padding: 0 24px;
+        gap: 36px;
+        margin-top: 72px;
+    }
+
+    .news-events-title {
+        font-size: 128px; /* H1 Tablet */
+        letter-spacing: -2.56px;
+    }
+
+    .news-events-see-all-btn {
+        font-size: 24px; /* P2 Tablet */
+        letter-spacing: -0.48px;
+        padding: 16px 36px;
+    }
+
+    .news-events-filter-bar {
+        gap: 48px;
+    }
+
+    .news-events-filter-chip {
+        font-size: 40px;
+    }
+
+    .news-events-cards-container {
+        gap: 18px;
+    }
+
+    .news-events-cards-container .event-card-date {
+        font-size: 12px;
+        letter-spacing: -0.24px;
+    }
+
+    .news-events-cards-container .event-card-title {
+        font-size: 32px;
+        letter-spacing: -0.64px;
     }
 
     /* Links Section - Tablet */
@@ -6248,6 +6459,64 @@ img {
     }
 
     /* Links Section - Mobile */
+    /* News and Events Section - Mobile */
+    .news-events-section {
+        padding: 0 12px;
+        gap: 36px;
+        margin-top: 50px;
+        margin-bottom: 0;
+    }
+
+    .news-events-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+        width: 100%;
+    }
+
+    .news-events-title {
+        font-size: 64px; /* H1 Mobile */
+        letter-spacing: -1.28px;
+        white-space: normal;
+        width: 100%;
+    }
+
+    .news-events-see-all-btn {
+        font-size: 24px; /* P2 Mobile */
+        letter-spacing: -0.48px;
+        padding: 16px 36px;
+        width: auto;
+    }
+
+    .news-events-filter-bar {
+        gap: 24px;
+        flex-wrap: wrap;
+    }
+
+    .news-events-filter-chip {
+        font-size: 24px;
+    }
+
+    .news-events-cards-container {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .news-events-cards-container .event-card {
+        width: 100%;
+        flex: none;
+    }
+
+    .news-events-cards-container .event-card-date {
+        font-size: 12px;
+        letter-spacing: -0.24px;
+    }
+
+    .news-events-cards-container .event-card-title {
+        font-size: 32px;
+        letter-spacing: -0.64px;
+    }
+
     .links-section {
         flex-direction: column;
         gap: 16px;
