@@ -3270,6 +3270,15 @@ img {
 
 /* .game-lounge-btn removed - replaced by .btn-lined */
 
+.game-lounge-btn[data-name="Buttons-Mobile"] .btn-text {
+    font-size: 16px;
+}
+
+/* Overwatch page - P1 text size experiment */
+.overwatch-page .p1 {
+    font-size: 20px;
+}
+
 .events-recaps {
     display: flex;
     flex-direction: column;
