@@ -1215,6 +1215,22 @@ a:hover {
     filter: brightness(0) invert(1); /* Makes icons white (--color-core-50) */
 }
 
+/* Apply red circle background to all social icons in footer */
+.footer .social-icons .social-icon {
+    background-color: var(--color-primary);
+    border-radius: 16px;
+    padding: 6px;
+    box-sizing: border-box;
+}
+
+.footer .social-icons .social-icon img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    object-position: center;
+    filter: brightness(0) invert(1); /* Makes icons white (--color-core-50) */
+}
+
 .social-icon-standard {
     width: 36px;
     height: 36px;
@@ -2156,6 +2172,124 @@ img {
     flex-shrink: 0;
     position: relative;
     overflow: hidden;
+}
+
+/* Game Lounge Section */
+.events-game-lounge-section {
+    display: flex;
+    flex-direction: row;
+    gap: 160px;
+    align-items: flex-start;
+    padding: 48px 36px;
+    background-color: var(--color-bg-800);
+    border-radius: 0;
+    width: calc(100% + 48px); /* Extend past parent padding (24px on each side) */
+    margin-left: -24px; /* Offset parent padding */
+    margin-right: -24px; /* Offset parent padding */
+    box-sizing: border-box;
+}
+
+.game-lounge-card-container {
+    flex: 1 0 0;
+    min-height: 1px;
+    min-width: 1px;
+    background-color: var(--color-core-100);
+    border-radius: 16px;
+    aspect-ratio: 1;
+    flex-shrink: 0;
+}
+
+.events-game-lounge-section .game-lounge-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+    flex-shrink: 0;
+    width: 634px;
+    max-width: 100%;
+    margin-top: 48px;
+    margin-left: -48px;
+}
+
+.events-game-lounge-section .game-lounge-title {
+    /* Inherit H1 properties */
+    font-family: "pressio-condensed", sans-serif;
+    font-weight: 700;
+    font-size: 128px !important; /* H1 Desktop - 128px */
+    line-height: 1;
+    letter-spacing: -2.56px; /* H1 letter-spacing */
+    text-transform: uppercase;
+    color: var(--color-core-100); /* Override H1 default color to match design */
+    margin: 0;
+    white-space: normal;
+    width: 100%;
+    text-align: left;
+    position: static;
+}
+
+.events-game-lounge-section .game-lounge-description {
+    font-family: var(--font-urbanist);
+    font-weight: 400;
+    color: var(--color-core-50);
+    margin: 0;
+    width: 100%;
+}
+
+.events-game-lounge-section .game-lounge-description p {
+    margin: 0;
+}
+
+.events-game-lounge-section .game-lounge-description .p1 {
+    /* P1 styles will be inherited from .p1 class */
+}
+
+/* .game-lounge-btn removed - uses standard .btn-lined class */
+
+/* Follow Us Section */
+.events-follow-us-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    padding: 72px 24px;
+    gap: 12px;
+}
+
+.follow-us-text {
+    margin: 0;
+    color: var(--color-core-50);
+}
+
+.follow-us-title {
+    margin: 0;
+    text-align: center;
+    color: var(--color-core-50);
+}
+
+.events-follow-us-section .social-icons {
+    margin-top: 12px;
+    margin-bottom: 72px;
+    justify-content: center;
+}
+
+.events-follow-us-section .social-icon {
+    text-decoration: none;
+    background-color: var(--color-primary);
+    border-radius: 16px;
+    padding: 6px;
+    box-sizing: border-box;
+    width: 36px;
+    height: 36px;
+}
+
+.events-follow-us-section .social-icon img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    object-position: center;
+    filter: brightness(0) invert(1); /* Makes icons white (--color-core-50) */
 }
 
 /* Team Hero Section */
@@ -5532,11 +5666,16 @@ h2.event-card-title {
     .social-icon {
         width: 36px; /* Figma: size-[36px] */
         height: 36px;
+        background-color: var(--color-primary);
+        border-radius: 16px;
+        padding: 6px;
+        box-sizing: border-box;
     }
     
     .social-icon img {
         width: 24px; /* Adjust icon size within 36px container */
         height: 24px;
+        filter: brightness(0) invert(1); /* Makes icons white (--color-core-50) */
     }
     
     .social-icon-primary {
@@ -5629,6 +5768,40 @@ h2.event-card-title {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 12px;
     }
+
+    /* Game Lounge Section - Tablet */
+    .events-game-lounge-section {
+        flex-direction: column;
+        gap: 48px;
+        padding: 36px 24px;
+        width: calc(100% + 48px);
+        margin-left: -24px;
+        margin-right: -24px;
+    }
+
+    .events-game-lounge-section .game-lounge-card-container {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        flex: none;
+    }
+
+    .events-game-lounge-section .game-lounge-content {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 0;
+        margin-left: 0;
+    }
+
+    .events-game-lounge-section .game-lounge-title {
+        font-size: 48px;
+        letter-spacing: -0.96px;
+    }
+
+    .events-game-lounge-section .game-lounge-description {
+        /* P1 styles will be inherited from .p1 class */
+    }
+
+    /* .game-lounge-btn removed - uses standard .btn-lined class */
 }
 
 /* Smooth transition breakpoint (769px) - prepare for mobile */
@@ -6654,7 +6827,7 @@ h2.event-card-title {
     .events-recaps-grid,
     .news-events-cards-container.events-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
+        gap: 6px;
         width: 100%;
         max-width: 100%;
         padding: 0;
@@ -6898,6 +7071,45 @@ h2.event-card-title {
     .events-calendar-container {
         height: 400px;
     }
+
+    /* Game Lounge Section - Mobile */
+    .events-game-lounge-section {
+        flex-direction: column;
+        gap: 12px;
+        padding: 24px 12px;
+        width: calc(100% + 24px);
+        margin-left: -12px;
+        margin-right: -12px;
+    }
+
+    .events-game-lounge-section .game-lounge-content {
+        margin-left: 0;
+        padding: 0 12px;
+    }
+
+    .events-game-lounge-section .game-lounge-card-container {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        flex: none;
+    }
+
+    .events-game-lounge-section .game-lounge-content {
+        width: 100%;
+        gap: 16px;
+    }
+
+    .events-game-lounge-section .game-lounge-title {
+        font-size: 40px !important; /* H1 mobile size */
+        letter-spacing: -0.8px;
+        width: 100%;
+        position: static;
+    }
+
+    .events-game-lounge-section .game-lounge-description {
+        /* P1 styles will be inherited from .p1 class */
+    }
+
+    /* .game-lounge-btn removed - uses standard .btn-lined class */
 
     /* Location Section - Mobile */
     .location-section {
@@ -7143,7 +7355,7 @@ h2.event-card-title {
     .news-events-cards-container.events-grid {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
+        gap: 6px;
     }
 
     .news-events-cards-container .event-card-date {
@@ -7250,6 +7462,10 @@ h2.event-card-title {
     .social-icon {
         width: 30px;
         height: 30px;
+        background-color: var(--color-primary);
+        border-radius: 12px;
+        padding: 6px;
+        box-sizing: border-box;
     }
     
     .social-icon img {
@@ -7259,6 +7475,7 @@ h2.event-card-title {
         min-height: 18px;
         max-width: 18px;
         max-height: 18px;
+        filter: brightness(0) invert(1); /* Makes icons white (--color-core-50) */
     }
     
     .social-icon-primary {
