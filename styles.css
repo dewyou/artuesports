@@ -90,6 +90,8 @@ h1 {
     font-family: "pressio-condensed", sans-serif;
     font-size: 128px !important;
     color: var(--color-core-50);
+    margin: 0;
+    line-height: 1;
 }
 
 /* H2: Desktop - 72px */
@@ -599,6 +601,7 @@ a:hover {
     align-items: center;
     position: relative;
     padding: 0;
+    margin-top: 30px; /* Gap between navbar and carousel */
     box-sizing: border-box;
 }
 
@@ -1657,6 +1660,7 @@ img {
     letter-spacing: -2.56px;
     text-transform: uppercase;
     align-self: stretch;
+    margin-top: 30px;
 }
 
 /* Academic Opportunities paragraph text - exact Figma styling */
@@ -6673,7 +6677,7 @@ h2.event-card-title {
     /* Carousel - Mobile */
     .carousel {
         padding: 0 12px;
-        margin-top: 23px; /* Gap between navbar and first section */
+        margin-top: 30px; /* Gap between navbar and first section */
         gap: 15px;
         margin-bottom: 0;
     }
@@ -7592,7 +7596,7 @@ h2.event-card-title {
     flex-direction: column;
     gap: 37px;
     align-items: center;
-    padding: 96px 16px 0;
+    padding: 0 36px 0;
     position: relative;
     width: 100%;
     min-height: 100vh;
@@ -7776,14 +7780,7 @@ h2.event-card-title {
 
 .connect-page-container [data-node-id="549:2212"] {
     align-self: center;
-    display: flex;
-    padding: 16px 36px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    border-radius: 16px;
-    border: 3px solid var(--Core-50, #FCFCFC);
+    display: inline-flex;
 }
 /* Connect page sections padding */
 .connect-page-container > div {
@@ -7791,16 +7788,24 @@ h2.event-card-title {
     width: 100%;
 }
 
-.connect-page-container [data-name="hero-text-container"],
-.connect-page-container [data-name="03-discord-section"],
+.connect-page-container [data-name="hero-text-container"] {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.connect-page-container [data-name="03-discord-section"] {
+    padding-left: 0;
+    padding-right: 0;
+}
+
 .connect-page-container [data-node-id="549:2309"] {
     padding-left: 20px;
     padding-right: 20px;
 }
 
 .connect-page-container [data-node-id="549:2209"] {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 /* Academic opportunities text gradient */
@@ -7876,16 +7881,28 @@ h2.event-card-title {
         letter-spacing: -1.28px !important;
     }
     
-    .connect-page-container [data-name="hero-text-container"],
-    .connect-page-container [data-name="03-discord-section"],
-    .connect-page-container [data-node-id="549:2309"],
-    .connect-page-container [data-node-id="549:2209"] {
+    .connect-page-container [data-name="hero-text-container"] {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    .connect-page-container [data-name="03-discord-section"] {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    .connect-page-container [data-node-id="549:2309"] {
         padding-left: 16px;
         padding-right: 16px;
     }
     
+    .connect-page-container [data-node-id="549:2209"] {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
     .connect-page-container {
-        padding: 96px 16px 0;
+        padding: 0 16px 0;
         gap: 24px;
     }
     
