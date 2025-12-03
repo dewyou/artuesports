@@ -1220,10 +1220,11 @@ a:hover {
 
 /* Apply red circle background to all social icons in footer */
 .footer .social-icons .social-icon {
-    background-color: var(--color-primary);
-    border-radius: 16px;
-    padding: 6px;
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
     box-sizing: border-box;
+    transition: filter 0.3s ease;
 }
 
 .footer .social-icons .social-icon img {
@@ -1232,6 +1233,11 @@ a:hover {
     object-fit: contain;
     object-position: center;
     filter: brightness(0) invert(1); /* Makes icons white (--color-core-50) */
+    transition: filter 0.3s ease;
+}
+
+.footer .social-icons .social-icon:hover img {
+    filter: brightness(0) invert(1) drop-shadow(0 0 8px var(--color-primary));
 }
 
 .social-icon-standard {
