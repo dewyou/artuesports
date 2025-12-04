@@ -6221,6 +6221,13 @@ h2.event-card-title {
     max-width: 100%;
 }
 
+/* Hide 4th card on index.html when screen width is 1201px or above */
+@media screen and (min-width: 1201px) {
+    .index-events-grid .event-card:nth-child(4) {
+        display: none;
+    }
+}
+
 /* Responsive Adjustments */
 @media (max-width: 1200px) {
     .events-grid,
