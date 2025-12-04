@@ -22,6 +22,7 @@
     --color-bg-900: #050708;
     --color-bg-800: #1d252c;
     --color-bg-600: #405464;
+    --color-bg-400:#6C8293;
     --color-core-50: #fcfcfc;
     --color-core-100: #f2f2f2;
     
@@ -1315,9 +1316,10 @@ a:hover {
 }
 
 .footer-copyright {
+    font-size: 16px;
     font-weight: 600;
     line-height: normal;
-    color: var(--color-text-secondary);
+    color: var(--color-bg-400);
     margin: 0;
     letter-spacing: -0.4px;
     text-align: center;
@@ -1332,9 +1334,10 @@ a:hover {
 }
 
 .footer-legal-link {
+    font-size: 16px;
     font-weight: 600;
     line-height: normal;
-    color: var(--color-text-secondary);
+    color: var(--color-bg-400);
     margin: 0;
     letter-spacing: -0.4px;
     text-align: center;
@@ -5854,7 +5857,7 @@ h2.event-card-title {
     .footer-copyright {
         letter-spacing: -0.24px; /* Figma: tracking-[-0.24px] */
         font-weight: 600; /* SemiBold */
-        color: var(--color-text-secondary);
+        color: var(--color-bg-400);
     }
     
     .footer-legal {
@@ -5864,7 +5867,7 @@ h2.event-card-title {
     .footer-legal-link {
         letter-spacing: -0.24px; /* Figma: tracking-[-0.24px] */
         font-weight: 600; /* SemiBold */
-        color: var(--color-text-secondary);
+        color: var(--color-bg-400);
     }
 
     /* Button Styles - Tablet */
@@ -7719,7 +7722,7 @@ h2.event-card-title {
         white-space: pre;
         line-height: normal;
         margin: 0;
-        color: var(--color-text-secondary);
+        color: var(--color-bg-400);
     }
     
     .footer-legal {
@@ -7735,7 +7738,7 @@ h2.event-card-title {
         white-space: pre;
         line-height: normal;
         margin: 0;
-        color: var(--color-text-secondary);
+        color: var(--color-bg-400);
     }
 }
 
