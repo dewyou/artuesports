@@ -110,16 +110,23 @@ h3 {
 }
 
 /* Paragraph Type Styles */
+/* Global paragraph default - 0 tracking */
+p {
+    letter-spacing: 0;
+}
+
 /* P1: Desktop - 26px */
 .p1 {
     font-family: "urbanist", sans-serif;
     font-size: 26px;
+    letter-spacing: 0;
 }
 
 /* P2: Desktop - 20px */
 .p2 {
     font-family: "urbanist", sans-serif;
     font-size: 20px;
+    letter-spacing: 0;
 }
 
 a {
@@ -2199,6 +2206,10 @@ img {
     box-sizing: border-box;
 }
 
+.page-container .events-game-lounge-section {
+    margin-top: 48px;
+}
+
 .game-lounge-card-container {
     flex: 1 0 0;
     min-height: 1px;
@@ -2261,6 +2272,15 @@ img {
     width: 100%;
     padding: 72px 24px;
     gap: 12px;
+}
+
+.page-container .events-follow-us-section {
+    margin-top: 48px;
+    margin-bottom: 48px;
+}
+
+.page-container .events-follow-us-section .social-icons {
+    margin-bottom: 0;
 }
 
 .follow-us-text {
@@ -2343,7 +2363,7 @@ img {
     font-weight: 500;
     font-size: 26px; /* P1 Desktop */
     line-height: 1;
-    letter-spacing: -0.52px;
+    letter-spacing: 0;
     color: var(--color-text-primary);
     margin: 0;
     width: 727px;
@@ -2897,6 +2917,11 @@ img {
     margin: 0;
 }
 
+.team-events-section-title + p {
+    margin-top: -5px;
+    width: 50%;
+}
+
 .team-events-cards-container {
     display: flex;
     gap: 16px;
@@ -3202,7 +3227,7 @@ h2.event-card-title {
     font-family: var(--font-urbanist);
     font-weight: 500;
     font-size: 26px;
-    letter-spacing: -0.52px;
+    letter-spacing: 0;
     line-height: 1;
     margin: 0;
     color: #f2f2f2; /* Updated to match Figma */
@@ -3264,7 +3289,7 @@ h2.event-card-title {
 /* Override for event-card-date with p1 class - use p1 sizing */
 .event-card .event-card-date.p1 {
     font-size: 26px; /* P1 Desktop */
-    letter-spacing: -0.52px;
+    letter-spacing: 0;
 }
 
 .event-card .event-card-title,
@@ -3280,7 +3305,7 @@ h2.event-card-title {
     font-family: var(--font-urbanist);
     font-weight: 500; /* Medium */
     font-size: 26px; /* Figma: text-[length:var(--type\/paragraph\/p1,26px)] */
-    letter-spacing: -0.52px; /* Figma: tracking-[-0.52px] */
+    letter-spacing: 0;
     color: #f2f2f2; /* Figma: text-[#f2f2f2] */
     line-height: 1;
     margin: 0;
@@ -3500,6 +3525,15 @@ h2.event-card-title {
 /* ============================================
    Teams Cards Styles
    ============================================ */
+.teams-page-title {
+    align-self: flex-start;
+    text-align: left;
+    text-transform: uppercase;
+    width: 100%;
+    margin-top: 36px;
+    margin-bottom: 36px;
+}
+
 .teams-cards-container {
     display: flex;
     gap: 16px;
@@ -3588,6 +3622,15 @@ h2.event-card-title {
 
 .team-card-title .mb-0 {
     margin-bottom: 0;
+}
+
+.team-card-title p {
+    margin: 0;
+    line-height: 1;
+}
+
+.team-card-title p:not(.mb-0) {
+    margin-top: 0.1em;
 }
 
 /* Community Section Styles */
@@ -5391,6 +5434,7 @@ h2.event-card-title {
     /* P1: Tablet - 20px */
     .p1 {
         font-size: 20px;
+        letter-spacing: 0;
     }
 
     .overwatch-page .p1 {
@@ -5401,6 +5445,7 @@ h2.event-card-title {
     /* P2: Tablet - 18px */
     .p2 {
         font-size: 18px;
+        letter-spacing: 0;
     }
     
     /* .btn-learn-more removed - replaced by .btn-filled */
@@ -5978,6 +6023,7 @@ h2.event-card-title {
     /* P1: Mobile - 14px */
     .p1 {
         font-size: 14px;
+        letter-spacing: 0;
     }
 
     .overwatch-page .p1 {
@@ -5988,6 +6034,7 @@ h2.event-card-title {
     /* P2: Mobile - 12px */
     .p2 {
         font-size: 12px;
+        letter-spacing: 0;
     }
     
     /* .btn-learn-more removed - replaced by .btn-filled */
@@ -6385,14 +6432,14 @@ h2.event-card-title {
     .event-overlay-description,
     .team-hero-description {
         font-size: 20px;
-        letter-spacing: -0.4px;
+        letter-spacing: 0;
     }
     
     /* Ensure event-card-date with p1 class uses p1 sizing on tablet */
     .event-card-date.p1,
     .event-card .event-card-date.p1 {
         font-size: 20px;
-        letter-spacing: -0.4px;
+        letter-spacing: 0;
     }
 
     .event-overlay-calendar-btn {
@@ -6698,7 +6745,7 @@ h2.event-card-title {
     .event-overlay-description,
     .team-hero-description {
         font-size: 14px;
-        letter-spacing: -0.28px;
+        letter-spacing: 0;
     }
 
     /* Hide event card description on mobile */
@@ -6712,7 +6759,7 @@ h2.event-card-title {
     .event-card-date.p1,
     .event-card .event-card-date.p1 {
         font-size: 14px;
-        letter-spacing: -0.28px;
+        letter-spacing: 0;
     }
 
     /* P2 - Mobile: 12px */
