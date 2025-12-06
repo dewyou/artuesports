@@ -665,6 +665,23 @@ a:hover {
     color: #666;
 }
 
+.carousel-slide-content.carousel-logo-slide {
+    background-color: #1a1a1a; /* Dark charcoal grey background to match hexagon logo design */
+    background-image: 
+        repeating-linear-gradient(60deg, transparent, transparent 2px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.03) 4px),
+        repeating-linear-gradient(-60deg, transparent, transparent 2px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.03) 4px);
+    /* Subtle hexagonal pattern effect */
+}
+
+.carousel-logo-image {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
 /* Community carousel slide content - ensure full height and proper positioning */
 .carousel-slide [data-name="lounge-card-container"] {
     min-height: 100%;
@@ -1668,10 +1685,11 @@ img {
 
 /* Academic Opportunities paragraph text - exact Figma styling */
 .academic-opportunities-text,
-.connect-page-container [data-node-id="549:2248"] {
+.connect-page-container [data-node-id="549:2248"],
+[data-node-id="354:285"] {
     text-align: center;
     font-family: Urbanist, sans-serif;
-    font-size: 24px;
+    font-size: 26px; /* Desktop: 26px */
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -2258,6 +2276,7 @@ img {
     width: 100%;
     padding: 72px 24px;
     gap: 12px;
+    background-color: #1D252C;
 }
 
 .follow-us-text {
@@ -3401,6 +3420,7 @@ h2.event-card-title {
     min-width: 0;
     position: relative;
     transition: opacity 0.3s ease;
+    border-radius: 16px; /* Match border-radius for hover effect */
 }
 
 .room-card-link {
@@ -3411,13 +3431,14 @@ h2.event-card-title {
     height: 100%;
     border-radius: 16px;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease;
 }
 
 .room-card-link:hover {
     transform: translateY(-4px);
     box-shadow: 0 0 20px rgba(237, 31, 51, 0.6), 0 0 40px rgba(237, 31, 51, 0.4), 0 8px 24px rgba(0, 0, 0, 0.4);
     text-decoration: none;
+    border-radius: 16px; /* Explicitly maintain border-radius on hover */
 }
 
 .room-card-link:hover .room-card-title {
@@ -3446,6 +3467,7 @@ h2.event-card-title {
     background-position: center;
     background-repeat: no-repeat;
     opacity: 0.5;
+    border-radius: 16px; /* Match team-card-bg border-radius */
 }
 
 .room-card-image {
@@ -3456,6 +3478,7 @@ h2.event-card-title {
     object-fit: cover;
     object-position: center;
     opacity: 0.5;
+    border-radius: 16px; /* Match team-card-bg border-radius */
 }
 
 .room-card-overlay {
@@ -5394,6 +5417,13 @@ h2.event-card-title {
         font-size: 20px; /* P1 Tablet - override .overwatch-page .p1 */
     }
 
+    /* Academic opportunities text - Tablet: 20px (matching responsive size) */
+    .academic-opportunities-text,
+    .connect-page-container [data-node-id="549:2248"],
+    [data-node-id="354:285"] {
+        font-size: 20px; /* Tablet: 20px */
+    }
+
     
     /* P2: Tablet - 18px */
     .p2 {
@@ -5582,25 +5612,31 @@ h2.event-card-title {
 
     /* Room Cards Section - Tablet */
     .room-cards-section {
-        padding: 0 24px;
+        padding: 0;
         align-items: center;
         margin-top: 72px; /* Figma: gap between major sections */
+        width: 100%;
     }
 
     .room-cards-container {
-        width: 787px; /* Figma: fixed width */
+        width: 100%;
         max-width: 100%;
         flex-direction: column;
         gap: 30px; /* Figma: gap between cards */
-        margin: 0 auto; /* Center the container */
+        margin: 0;
     }
 
     .room-card {
         width: 100%;
     }
 
+    .room-card-link {
+        border-radius: 0; /* Remove border-radius for edge-to-edge on tablet */
+    }
+
     .room-card-image-wrapper {
         aspect-ratio: 416 / 256.42; /* Figma: aspect ratio */
+        border-radius: 0; /* Remove border-radius for edge-to-edge on tablet */
     }
 
     .room-card-content {
@@ -5979,6 +6015,13 @@ h2.event-card-title {
 
     .overwatch-page .p1 {
         font-size: 14px; /* P1 Mobile - override .overwatch-page .p1 */
+    }
+
+    /* Academic opportunities text - Mobile: 14px (matching P1 mobile size) */
+    .academic-opportunities-text,
+    .connect-page-container [data-node-id="549:2248"],
+    [data-node-id="354:285"] {
+        font-size: 14px; /* Mobile: 14px */
     }
 
     
@@ -6793,14 +6836,24 @@ h2.event-card-title {
     
     /* Carousel - Mobile */
     .carousel {
-        padding: 0 12px;
+        padding: 0;
         margin-top: 30px; /* Gap between navbar and first section */
         gap: 15px;
         margin-bottom: 0;
+        width: 100%;
     }
     
     .carousel-deck {
         aspect-ratio: 779 / 1168; /* Match Figma mobile design */
+        border-radius: 0; /* Remove border-radius for edge-to-edge on mobile */
+    }
+
+    .carousel-slide-content {
+        border-radius: 0; /* Remove border-radius for edge-to-edge on mobile */
+    }
+
+    .carousel-slide-content.carousel-logo-slide {
+        border-radius: 0; /* Remove border-radius for edge-to-edge on mobile */
     }
     
     /* Content Section - Mobile */
