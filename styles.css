@@ -560,6 +560,7 @@ a:hover {
 .dropdown-item:hover {
     background-color: var(--color-bg-600);
     color: var(--color-primary);
+    text-decoration: none;
 }
 
 .dropdown-item:hover h2 {
