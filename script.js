@@ -997,3 +997,86 @@ $(document).ready(function(){
 		toggleCardAnimation($card);
 	});
 });
+
+// Footer Copy to Clipboard Functionality
+$(document).ready(function(){
+	// Function to copy text to clipboard
+	function copyToClipboard(text, $element) {
+		// Use the modern Clipboard API
+		if (navigator.clipboard && window.isSecureContext) {
+			navigator.clipboard.writeText(text).then(function() {
+				showCopyFeedback($element);
+			}).catch(function(err) {
+				console.error('Failed to copy: ', err);
+				fallbackCopyToClipboard(text, $element);
+			});
+		} else {
+			// Fallback for older browsers
+			fallbackCopyToClipboard(text, $element);
+		}
+	}
+	
+	// Fallback copy method for older browsers
+	function fallbackCopyToClipboard(text, $element) {
+		const textArea = document.createElement("textarea");
+		textArea.value = text;
+		textArea.style.position = "fixed";
+		textArea.style.left = "-999999px";
+		textArea.style.top = "-999999px";
+		document.body.appendChild(textArea);
+		textArea.focus();
+		textArea.select();
+		
+		try {
+			document.execCommand('copy');
+			showCopyFeedback($element);
+		} catch (err) {
+			console.error('Fallback copy failed: ', err);
+		}
+		
+		document.body.removeChild(textArea);
+	}
+	
+	// Show visual feedback when copying
+	function showCopyFeedback($element) {
+		const originalText = $element.text();
+		$element.text('Copied!');
+		$element.css('color', '#ed1f33'); // Use the site's red color
+		
+		setTimeout(function() {
+			$element.text(originalText);
+			$element.css('color', ''); // Reset to original color
+		}, 2000);
+	}
+	
+	// Handle phone number click
+	$('.footer-links').on('click', 'p.footer-link', function(e) {
+		const $element = $(this);
+		const text = $element.text().trim();
+		
+		// Check if it's a phone number (contains digits and + or -)
+		if (text.match(/[\d\+\-\(\)]/) && text.length > 5) {
+			e.preventDefault();
+			// Remove formatting for cleaner copy (optional - you can keep formatting)
+			const cleanText = text.replace(/\s/g, ''); // Remove spaces
+			copyToClipboard(cleanText, $element);
+		}
+		// Check if it's an email
+		else if (text.includes('@')) {
+			e.preventDefault();
+			copyToClipboard(text, $element);
+		}
+	});
+	
+	// Handle email link click (for elements with data-email attribute)
+	$('.footer-links').on('click', 'a.footer-email', function(e) {
+		e.preventDefault();
+		const $element = $(this);
+		const email = $element.attr('data-email') || $element.text().trim();
+		copyToClipboard(email, $element);
+	});
+	
+	// Add cursor pointer style to clickable footer links
+	$('.footer-links p.footer-link').css('cursor', 'pointer');
+	$('.footer-links a.footer-email').css('cursor', 'pointer');
+});
