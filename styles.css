@@ -5163,31 +5163,7 @@ h2.event-card-title {
     white-space: nowrap;
 }
 
-.event-overlay-calendar-btn {
-    border: 3px solid var(--color-text-primary);
-    background: transparent;
-    padding: 16px var(--spacing-container);
-    border-radius: 16px;
-    font-family: var(--font-urbanist);
-    font-weight: 600;
-    font-size: 26px;
-    line-height: 1;
-    letter-spacing: -0.52px;
-    color: var(--color-text-primary);
-    cursor: pointer;
-    transition: background-color 0.2s ease, color 0.2s ease;
-    width: auto;
-    text-align: center;
-    white-space: nowrap;
-    margin: 0;
-    margin-right: 0;
-    box-sizing: border-box;
-}
-
-.event-overlay-calendar-btn:hover {
-    background-color: var(--color-text-primary);
-    color: var(--color-bg-primary);
-}
+/* .event-overlay-calendar-btn removed - uses standard .btn-lined class */
 
 .event-overlay-media {
     display: flex;
@@ -6868,10 +6844,7 @@ h2.event-card-title {
         letter-spacing: 0;
     }
 
-    .event-overlay-calendar-btn {
-        font-size: 20px;
-        letter-spacing: -0.4px;
-    }
+    /* .event-overlay-calendar-btn removed - uses standard .btn-lined class */
 
     /* P2 - Tablet: 18px */
     .event-card-date,
@@ -7606,11 +7579,7 @@ h2.event-card-title {
         letter-spacing: -0.64px;
     }
 
-    .event-overlay-calendar-btn {
-        font-size: 14px;
-        letter-spacing: -0.28px;
-        padding: 12px 24px;
-    }
+    /* .event-overlay-calendar-btn removed - uses standard .btn-lined class */
 
     .event-overlay-close {
         top: 0;
