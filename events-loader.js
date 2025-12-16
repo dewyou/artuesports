@@ -1,8 +1,9 @@
-// Reuse Supabase configuration from teams-loader.js
-// (SUPABASE_URL and SUPABASE_ANON_KEY already declared in teams-loader.js)
+// Supabase configuration
+const SUPABASE_URL_EVENTS = 'https://ueyhnpazdbtwstkcyedu.supabase.co';
+const SUPABASE_ANON_KEY_EVENTS = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVleWhucGF6ZGJ0d3N0a2N5ZWR1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI0NjM3NzYsImV4cCI6MjA3ODAzOTc3Nn0.leC8cE_Tlj9UvOkov1IhfPdJ0ppeWJtAX2zS1tyZyPg';
 
 // Initialize Supabase client for events
-const supabaseEvents = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const supabaseEvents = window.supabase.createClient(SUPABASE_URL_EVENTS, SUPABASE_ANON_KEY_EVENTS);
 
 /**
  * Fetch events from Supabase and render event cards
