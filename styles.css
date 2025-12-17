@@ -2102,9 +2102,6 @@ img {
     width: 100%;
     margin-left: 0;
     margin-right: 0;
-    padding-left: var(--spacing-container);
-    padding-right: var(--spacing-container);
-    box-sizing: border-box;
 }
 
 .title-filter-container {
@@ -2236,7 +2233,7 @@ img {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     width: 100%;
 }
@@ -4375,8 +4372,6 @@ h2.event-card-title {
     width: 100%;
     margin-left: 0;
     margin-right: 0;
-    padding: 0 var(--spacing-container);
-    box-sizing: border-box;
     margin-top: 48px;
     margin-bottom: 48px;
 }
@@ -5699,8 +5694,6 @@ h2.event-card-title {
 /* Desktop Breakpoint (min-width: 1025px) - Ensure news-events section has proper side margins */
 @media screen and (min-width: 1025px) {
     .news-events-section {
-        padding-left: var(--spacing-container) !important;
-        padding-right: var(--spacing-container) !important;
     }
 }
 
@@ -6048,10 +6041,8 @@ h2.event-card-title {
         width: 100%;
         margin-left: 0;
         margin-right: 0;
-        padding: 0 var(--spacing-container);
         gap: 36px;
         margin-top: 48px;
-        box-sizing: border-box;
     }
     
     /* Event grid inside news-events-section should respect parent padding on tablet */
@@ -8174,11 +8165,9 @@ h2.event-card-title {
         width: 100%;
         margin-left: 0;
         margin-right: 0;
-        padding: 0 var(--spacing-container);
         gap: 36px;
         margin-top: 48px;
         margin-bottom: 0;
-        box-sizing: border-box;
     }
     
     /* Event grid inside news-events-section should respect parent padding on mobile */

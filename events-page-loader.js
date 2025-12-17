@@ -76,10 +76,9 @@ function createEventCard(event) {
     card.setAttribute('data-name', `event-card-${category}`);
     card.setAttribute('data-event-id', event.id);
 
-    // Make entire card clickable if event_url exists
+    // Preserve event_url as data attribute if it exists
     if (event.event_url && event.event_url !== '#') {
-        card.style.cursor = 'pointer';
-        card.onclick = () => window.location.href = event.event_url;
+        card.setAttribute('data-event-url', event.event_url);
     }
 
     // Create card content container

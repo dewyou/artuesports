@@ -768,8 +768,9 @@ $(function(){
 		$("body").css("overflow", "");
 	}
 	
-	// Handle event card clicks - only on cards in the events grid (not recaps)
-	$(".events-grid .event-card, .index-events-grid .event-card, .news-events-cards-container.events-grid .event-card").on("click", function(e) {
+	// Handle event card clicks - includes upcoming events and past event recaps
+	// Use event delegation to handle dynamically-created cards
+	$(document).on("click", ".events-grid .event-card, .index-events-grid .event-card, .news-events-cards-container.events-grid .event-card, .events-recaps-grid .event-card", function(e) {
 		e.preventDefault();
 		e.stopPropagation();
 		const $card = $(this);
